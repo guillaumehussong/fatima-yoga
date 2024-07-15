@@ -54,7 +54,7 @@ import { useBackofficeWritePermission } from '../../../components/hooks/usePermi
             render: ({ type }) => displayCourseType(type),
           },
           {
-            title: 'Inscriptions / Places disponibles',
+            title: 'Inscripciones / Places disponibles',
             name: 'registrations._count',
             sortable: true,
             render: ({ slots, registrations }) => {

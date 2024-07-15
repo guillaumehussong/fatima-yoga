@@ -20,7 +20,7 @@ export const HeadMeta: React.FC<HeadMetaProps> = ({ title, description }) => {
       {description !== undefined && (
         <meta name="description" content={description} />
       )}
-      <meta name="keywords" content="cours, yoga, hésingue, comète, hégenheim, saint-louis agglomération, alsace, De Gasquet, renforcement musculaire, essai, à la carte, hatha" />
+      <meta name="keywords" content="cours, yoga, el salvador, san salvador, santa tecla" />
 
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <link rel="icon" type="image/svg+xml" href="/icon.svg" />

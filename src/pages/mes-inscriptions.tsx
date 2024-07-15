@@ -152,7 +152,7 @@ const UserTabPanelContent: React.FC<UserTabPanelProps> = ({ userId, publicAccess
       </Typography>
       <Typography paragraph>
         Les séances à venir pour lesquelles vous êtes inscrit(e).
-        Vous retrouverez également l'historique de vos inscriptions et participations.
+        Vous retrouverez également l'historique de vos inscripciones et participations.
       </Typography>
       <Stack direction="column" spacing={2}>
         <FrontsiteCourseGrid userId={userId} future={true} userCanceled={false} />
@@ -179,7 +179,7 @@ const UserTabPanelContent: React.FC<UserTabPanelProps> = ({ userId, publicAccess
       Votre adresse email nous permet notamment de vous informer en cas d'annulation de séance.
       <UserDataForm userId={userId} />
       Vos données personnelles sont traitées conformément à notre <Link href="/confidentialite" passHref legacyBehavior><MuiLink>politique de confidentialité</MuiLink></Link>,
-      en particulier celles-ci ne sont utilisées que dans le but d'assurer l'inscription et l'organisation des séances de Yoga.
+      en particulier celles-ci ne sont utilisées que dans le but d'assurer l'inscripcion et l'organisation des séances de Yoga.
       <Typography variant="h5" component="div" sx={{ my: 2 }}>
         Calendrier personnel
       </Typography>
@@ -190,11 +190,11 @@ const UserTabPanelContent: React.FC<UserTabPanelProps> = ({ userId, publicAccess
   );
 };
 
-interface MesInscriptionsContentProps {
+interface MesInscripcionesContentProps {
   session: Session;
 }
 
-const MesInscriptionsContent: React.FC<MesInscriptionsContentProps> = ({ session }) => {
+const MesInscripcionesContent: React.FC<MesInscripcionesContentProps> = ({ session }) => {
   const [tab, setTab] = useState(0);
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => setTab(newValue);
 
@@ -208,13 +208,13 @@ const MesInscriptionsContent: React.FC<MesInscriptionsContentProps> = ({ session
   );
 
   return (
-    <FrontsiteContent title="Mes inscriptions">
-      Cette page liste l'ensemble de vos inscriptions aux séances de Yoga (ainsi que celles de vos proches le cas échéant).
+    <FrontsiteContent title="Mes inscripciones">
+      Cette page liste l'ensemble de vos inscripciones aux séances de Yoga (ainsi que celles de vos proches le cas échéant).
       <br />
-      Ces inscriptions se font au moyen de <Link href="/inscription" passHref legacyBehavior><MuiLink>ce formulaire</MuiLink></Link>.
+      Ces inscripciones se font au moyen de <Link href="/inscripcion" passHref legacyBehavior><MuiLink>ce formulaire</MuiLink></Link>.
       {data && data.managedByUser && (
         <Alert severity="info" sx={{ mt: 2 }}>
-          Votre compte est actuellement relié à celui de <strong>{data.managedByUser.name}</strong>, ce qui lui offre la possibilité de gérer vos inscriptions à votre place.
+          Votre compte est actuellement relié à celui de <strong>{data.managedByUser.name}</strong>, ce qui lui offre la possibilité de gérer vos inscripciones à votre place.
         </Alert>
       )}
       <Box>
@@ -243,7 +243,7 @@ const MesInscriptionsContent: React.FC<MesInscriptionsContentProps> = ({ session
   )
 };
 
-const MesInscriptionsPage = () => {
+const MesInscripcionesPage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -263,9 +263,9 @@ const MesInscriptionsPage = () => {
     return null;
   } else {
     return (
-      <MesInscriptionsContent session={session} />
+      <MesInscripcionesContent session={session} />
     );
   }
 };
 
-export default MesInscriptionsPage;
+export default MesInscripcionesPage;

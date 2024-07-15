@@ -33,7 +33,7 @@ export const CancelCourseRegistrationDialog: React.FC<CancelCourseRegistrationDi
       onClose={handleClose}
     >
       <DialogTitle>
-        Confirmer la désinscription de l'utilisateur à une séance
+        Confirmer la désinscripcion de l'utilisateur à une séance
       </DialogTitle>
       <DialogContent>
         <DialogContentText>

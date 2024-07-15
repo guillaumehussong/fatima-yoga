@@ -38,13 +38,13 @@ const GridActionCancelRegistration: React.FC<GridActionCancelRegistrationProps> 
       enqueueSnackbar(`Vous vous êtes désinscrit de la séance`, { variant: 'success' });
     },
     onError: () => {
-      enqueueSnackbar(`Une erreur est survenue lors de la désinscription de la séance`, { variant: 'error' });
+      enqueueSnackbar(`Une erreur est survenue lors de la désinscripcion de la séance`, { variant: 'error' });
     },
   });
   return (
     <>
       <FrontsiteCancelCourseRegistrationDialog courseRegistration={courseRegistration} open={open} setOpen={setOpen} onConfirm={() => mutateCancel({ userId, id: courseRegistration.id })} />
-      <GridActionsCellItemTooltip icon={<Cancel />} onClick={() => setOpen(true)} label={!disabled ? 'Annuler' : `La désinscription n'est plus possible`} disabled={isCanceling || disabled} />
+      <GridActionsCellItemTooltip icon={<Cancel />} onClick={() => setOpen(true)} label={!disabled ? 'Annuler' : `La désinscripcion n'est plus possible`} disabled={isCanceling || disabled} />
     </>
   );
 };
@@ -89,12 +89,12 @@ export const FrontsiteCourseGrid: React.FunctionComponent<FrontsiteCourseGrid> =
     },
     relativeTimestamp({
       field: 'createdAt',
-      headerName: `Inscription`,
+      headerName: `Inscripcion`,
       flex: 1.5,
     }),
     ...(userCanceled ? [relativeTimestamp({
       field: 'canceledAt',
-      headerName: `Désinscription`,
+      headerName: `Désinscripcion`,
       flex: 1.5,
     }) satisfies GridColDef<CourseRegistrationItem>] : []),
     ...(userCanceled ? [] : [simpleOrderColumn({
@@ -103,7 +103,7 @@ export const FrontsiteCourseGrid: React.FunctionComponent<FrontsiteCourseGrid> =
     ...(future ? [{
       field: 'actions',
       type: 'actions',
-      headerName: 'Désinscription',
+      headerName: 'Désinscripcion',
       minWidth: 120,
       getActions: ({ row }: GridRowParams<CourseRegistrationItem>) => !row.course.isCanceled ? [
         <GridActionCancelRegistration userId={userId} courseRegistration={row} disabled={nowLater.getTime() >= row.course.dateStart.getTime()} />,

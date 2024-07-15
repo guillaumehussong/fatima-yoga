@@ -8,25 +8,25 @@ import { CourseRegistrationGrid } from '../../../components/grid/grids/CourseReg
 export default function AdminCourseRegistrations() {
   return (
     <BackofficeContent
-      title="Inscriptions"
+      title="Inscripciones"
       icon={<Assignment />}
       quickActions={[
-        { icon: <Assignment />, name: 'Inscrire des utilisateurs à des séances', url: '/administration/inscriptions/creation' }
+        { icon: <Assignment />, name: 'Inscrire des utilisateurs à des séances', url: '/administration/inscripciones/creation' }
       ]}
     >
       <Typography variant="h6" component="div" sx={{ mt: 2 }}>
         Derniers mouvements
       </Typography>
       <Typography paragraph>
-        Dernières inscriptions ou désinscriptions à des séances programmées.
+        Dernières inscripciones ou désinscripciones à des séances programmées.
       </Typography>
       <CourseRegistrationEventGrid />
 
       <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-        Inscriptions actives
+        Inscripciones actives
       </Typography>
       <Typography paragraph>
-        Liste des inscriptions actives à des séances programmées (passées ou futures).
+        Liste des inscripciones actives à des séances programmées (passées ou futures).
         Vous pouvez vous rendre sur la page d'une séance ou d'un utilisateur afin de filtrer ces données.
         La colonne adhésion indique si l'utilisateur possède un statut d'adhérent le jour de la séance.
       </Typography>

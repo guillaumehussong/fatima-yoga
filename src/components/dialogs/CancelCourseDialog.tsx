@@ -42,7 +42,7 @@ export const CancelCourseDialog: React.FC<CancelCourseDialogProps> = ({ course, 
         <DialogContentText>
           <Typography paragraph>
             Souhaitez-vous vraiment annuler la <strong>{displayCourseName(course, false)}</strong> ?
-            Vous ne serez plus en mesure de rouvrir les inscriptions pour cette séance.
+            Vous ne serez plus en mesure de rouvrir les inscripciones pour cette séance.
           </Typography>
           <Typography paragraph>
             Vous pouvez optionnellement indiquer un motif, qui sera transmis aux personnes inscrites.

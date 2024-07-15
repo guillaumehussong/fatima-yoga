@@ -67,10 +67,10 @@ const GridActionCancel: React.FC<GridActionCancelProps> = ({ courseRegistration 
       await Promise.all((
         [trpcClient.course.find, trpcClient.course.findAll, trpcClient.courseRegistration.findAll, trpcClient.courseRegistration.findAllEvents, trpcClient.courseRegistration.findAllActive]
       ).map(procedure => procedure.invalidate()));
-      enqueueSnackbar(`L'inscription de l'utilisateur à la séance a été annulée`, { variant: 'success' });
+      enqueueSnackbar(`L'inscripcion de l'utilisateur à la séance a été annulée`, { variant: 'success' });
     },
     onError: () => {
-      enqueueSnackbar(`Une erreur est survenue lors de l'annulation de l'inscription de l'utilisateur à la séance`, { variant: 'error' });
+      enqueueSnackbar(`Une erreur est survenue lors de l'annulation de l'inscripcion de l'utilisateur à la séance`, { variant: 'error' });
     },
   });
   const status = getCourseStatus(courseRegistration.course);
@@ -124,7 +124,7 @@ export const CourseRegistrationGrid: React.FunctionComponent<CourseRegistrationG
     } satisfies GridColDef<CourseRegistrationItem>] : []),
     ...(userId !== undefined ? [] : [userColumn({ field: 'user', flex: 1 })]),
     ...(courseId !== undefined ? [] : [courseColumn({ field: 'course', flex: 1 })]),
-    relativeTimestamp({ field: 'createdAt', headerName: `Date d'inscription`, flex: 1 }),
+    relativeTimestamp({ field: 'createdAt', headerName: `Date d'inscripcion`, flex: 1 }),
     {
       field: 'membership',
       headerName: 'Adhésion',

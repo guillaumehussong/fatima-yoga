@@ -5,7 +5,7 @@ import React from 'react';
 export const EmailMessageTypeNames: { [K in EmailMessageType]: string } = {
   [EmailMessageType.SESSION_CANCELED]: 'Annulation de séance',
   [EmailMessageType.SESSION_REMINDER_NEWCOMER]: 'Rappel de séance pour nouveaux arrivants',
-  [EmailMessageType.SESSION_REGISTRATION]: 'Inscription à des séances',
+  [EmailMessageType.SESSION_REGISTRATION]: 'Inscripcion à des séances',
   [EmailMessageType.ORDER_CREATED]: 'Confirmation de paiement',
   [EmailMessageType.OTHER]: 'Autre',
 };

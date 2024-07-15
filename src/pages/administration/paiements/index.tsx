@@ -35,10 +35,10 @@ export default function AdminPayments() {
       </Typography>
       <UnpaidItemsGrid />
       <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-        Inscriptions à rattraper
+        Inscripciones à rattraper
       </Typography>
       <Typography paragraph>
-        Si des utilisateurs ont payé pour des inscriptions à des séances qui ont par la suite été annulées, ces dernières peuvent être utilisées en tant que remplacement pour une autre inscription.
+        Si des utilisateurs ont payé pour des inscripciones à des séances qui ont par la suite été annulées, ces dernières peuvent être utilisées en tant que remplacement pour une autre inscripcion.
       </Typography>
       <CourseRegistrationForReplacementGrid />
     </BackofficeContent>

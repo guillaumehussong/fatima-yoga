@@ -35,7 +35,7 @@ import { CheckboxElement, DeepPartial, FormContainer, TextFieldElement, useFormC
 import { zodResolver } from '@hookform/resolvers/zod';
 import { frontsiteCourseRegistrationSchema } from '../common/schemas/frontsiteCourseRegistration';
 // @ts-ignore
-import { RegistrationNoticePersonalInformation, RegistrationNoticeRecap } from '../../contents/inscription.mdx';
+import { RegistrationNoticePersonalInformation, RegistrationNoticeRecap } from '../../contents/inscripcion.mdx';
 import { useSnackbar } from 'notistack';
 import { DirtyFormUnloadAlert } from './form/fields/DirtyFormUnloadAlert';
 import { courses } from './contents/common/courses';
@@ -308,7 +308,7 @@ const CourseRegistrationFormStep3Confirmation: React.FC<Pick<CourseRegistrationF
       <Grid container spacing={4} sx={{ mb: 2 }}>
         <Grid item xs={12} md={6}>
           <Typography variant="h5" component="div" sx={{ mb: 2 }}>
-            Récapitulatif des inscriptions
+            Récapitulatif des inscripciones
           </Typography>
           <Card variant="outlined" sx={{ mb: 2 }}>
             <TableContainer>
@@ -389,7 +389,7 @@ const CourseRegistrationFormStep3Confirmation: React.FC<Pick<CourseRegistrationF
         <Grid item xs={12}>
           <CheckboxElement
             name="notify"
-            label={`Recevoir une copie ${self ? 'de mes' : 'des'} inscriptions par e-mail${self ? '' : ' (le proche recevra également une copie si une adresse est renseignée)'}`}
+            label={`Recevoir une copie ${self ? 'de mes' : 'des'} inscripciones par e-mail${self ? '' : ' (le proche recevra également une copie si une adresse est renseignée)'}`}
           />
         </Grid>
         <Grid item xs={12}>
@@ -413,12 +413,12 @@ const CourseRegistrationFormStep3Confirmed: React.FC<CourseRegistrationFormStepC
       </Box>
       <Box textAlign="center" sx={{ mb: 4 }}>
         <Box>
-          Vos inscriptions ont bien été prises en compte et nous vous en remercions.
+          Vos inscripciones ont bien été prises en compte et nous vous en remercions.
         </Box>
         <Box>
           Vous pouvez dès à présent les retrouver sur
           {' '}
-          <Link href="/mes-inscriptions" passHref legacyBehavior>
+          <Link href="/mes-inscripciones" passHref legacyBehavior>
             <MuiLink>votre page personnelle</MuiLink>
           </Link>
           .
@@ -501,7 +501,7 @@ const CourseRegistrationFormNavigation: React.FC<CourseRegistrationFormNavigatio
           onClick={handleNext}
           sx={{ visibility: watchStep >= 3 ? 'hidden' : undefined }}
         >
-          {watchStep !== 2 ? `Étape suivante` : `Valider ces inscriptions`}
+          {watchStep !== 2 ? `Étape suivante` : `Valider ces inscripciones`}
         </Button>
     </Stack>
   ) : null;
@@ -593,10 +593,10 @@ const CourseRegistrationForm: React.FC<Pick<CourseRegistrationFormProps, 'course
     onSuccess: async () => {
       await Promise.all(([trpcClient.self.managedUsers, trpcClient.self.findAllRegisteredCourses, trpcClient.self.profile, trpcClient.public.findAllModels, trpcClient.public.findAllFutureCourses]).map(procedure => procedure.invalidate()));
       reloadSession();
-      enqueueSnackbar(`Vos inscriptions ont bien été prises en compte`, { variant: 'success' });
+      enqueueSnackbar(`Vos inscripciones ont bien été prises en compte`, { variant: 'success' });
     },
     onError: () => {
-      enqueueSnackbar(`Une erreur est survenue au moment de soumettre vos inscriptions`, { variant: 'error' });
+      enqueueSnackbar(`Une erreur est survenue au moment de soumettre vos inscripciones`, { variant: 'error' });
     },
   });
   return (
@@ -605,7 +605,7 @@ const CourseRegistrationForm: React.FC<Pick<CourseRegistrationFormProps, 'course
       resolver={zodResolver(frontsiteCourseRegistrationSchema)}
       defaultValues={{ step: 0, userId: undefined, courseIds: [], name: '', email: '', consent: false, notify: true } satisfies CourseRegistrationFieldValues}
     >
-      {/*<DirtyFormUnloadAlert condition={isSubmitRegisterLoading} disabled={isSubmitRegisterSuccess} message="Vous n'avez pas confirmé vos inscriptions, souhaitez-vous vraiment quitter la page ?" />*/}
+      {/*<DirtyFormUnloadAlert condition={isSubmitRegisterLoading} disabled={isSubmitRegisterSuccess} message="Vous n'avez pas confirmé vos inscripciones, souhaitez-vous vraiment quitter la page ?" />*/}
       <CourseRegistrationFormStepper done={isSubmitRegisterSuccess} />
       <CourseStepContent session={session} courses={courses} done={isSubmitRegisterSuccess} />
       <CourseRegistrationFormNavigation isLoading={isSubmitRegisterLoading} done={isSubmitRegisterSuccess} />

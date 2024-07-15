@@ -150,7 +150,7 @@ const CourseContent: React.FunctionComponent<CourseContentProps> = ({ course }: 
         ...(!course.isCanceled && (!status.isAfterEnd || status.isInExtendedPeriod) ? [{ name: 'Annuler la séance', icon: <Cancel />, onClick: () => setConfirmCancelDialogOpen(true), disabled: isCanceling }] : []),
       ] : []}
       quickActions={hasWritePermission ? [
-        ...(status.canRegister ? [{ name: 'Inscrire des utilisateurs', icon: <Assignment />, url: { pathname: `/administration/inscriptions/creation`, query: { courseId: course.id, redirect: router.asPath } } }] : []),
+        ...(status.canRegister ? [{ name: 'Inscrire des utilisateurs', icon: <Assignment />, url: { pathname: `/administration/inscripciones/creation`, query: { courseId: course.id, redirect: router.asPath } } }] : []),
       ] : []}
     >
       <CancelCourseDialog
@@ -226,7 +226,7 @@ const CourseContent: React.FunctionComponent<CourseContentProps> = ({ course }: 
             </CardContent>
             {status.canRegister && hasWritePermission && (
               <CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Link href={{ pathname: '/administration/inscriptions/creation', query: { courseId: course.id, redirect: router.asPath } }} passHref legacyBehavior>
+                <Link href={{ pathname: '/administration/inscripciones/creation', query: { courseId: course.id, redirect: router.asPath } }} passHref legacyBehavior>
                   <Tooltip title="Inscrire des utilisateurs">
                     <IconButton size="small"><AddBox /></IconButton>
                   </Tooltip>
@@ -277,7 +277,7 @@ const CourseContent: React.FunctionComponent<CourseContentProps> = ({ course }: 
       <CourseRegistrationGrid courseId={course.id} attendance={!course.isCanceled && (!status.isBeforeStart || status.isInExtendedPeriod)} attendanceModifiable={isCheckingAttendance} />
 
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Historique d'inscriptions à cette séance
+        Historique d'inscripciones à cette séance
       </Typography>
       <CourseRegistrationEventGrid courseId={course.id} />
 

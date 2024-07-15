@@ -21,7 +21,7 @@ export const CourseRegistrationEventGrid: React.FunctionComponent<CourseRegistra
       field: 'isEventTypeUserCanceled',
       headerName: 'Événement',
       renderCell: ({ value }: GridRenderCellParams<CourseRegistrationEvent, boolean>) => (
-        <Tooltip title={value ? 'Désinscription' : 'Inscription'}>
+        <Tooltip title={value ? 'Désinscripcion' : 'Inscripcion'}>
           {value ? (
             <ContentPasteOff color="error" />
           ) : (
@@ -39,7 +39,7 @@ export const CourseRegistrationEventGrid: React.FunctionComponent<CourseRegistra
       headerName: '',
       sortable: false,
       renderCell: ({ row }: GridRenderCellParams<{ registration: CourseRegistration }>) => !row.registration.isUserCanceled && (
-        <Tooltip title="Inscription active">
+        <Tooltip title="Inscripcion active">
           <EventAvailable color="success" />
         </Tooltip>
       ),

@@ -110,7 +110,7 @@ const AdminUserContent: React.FunctionComponent<AdminUserContentProps> = ({ user
         { name: 'Supprimer', icon: <Delete />, onClick: () => setDeleteDialogOpen(true), disabled: isDeleteLoading },
       ] : []}
       quickActions={hasWritePermission ? [
-        { name: 'Inscrire à des séances', icon: <Assignment />, url: { pathname: `/administration/inscriptions/creation`, query: { userId: user.id, redirect: router.asPath } } },
+        { name: 'Inscrire à des séances', icon: <Assignment />, url: { pathname: `/administration/inscripciones/creation`, query: { userId: user.id, redirect: router.asPath } } },
         { name: 'Créer un paiement', icon: <ShoppingCart />, url: { pathname: `/administration/paiements/creation`, query: { userId: user.id, redirect: router.asPath } } },
       ] : []}
     >
@@ -151,7 +151,7 @@ const AdminUserContent: React.FunctionComponent<AdminUserContentProps> = ({ user
                 <GridItemStatistic
                   value={statistics.courseAbsences}
                   title="Absences"
-                  label="Nombre total d'absences. Une désinscription n'est pas comptabilisée comme une absence. Les séances annulées sont également exclues."
+                  label="Nombre total d'absences. Une désinscripcion n'est pas comptabilisée comme une absence. Les séances annulées sont également exclues."
                   good={false}
                 />
               </Grid>
@@ -164,7 +164,7 @@ const AdminUserContent: React.FunctionComponent<AdminUserContentProps> = ({ user
       </Typography>
       <CourseRegistrationGrid userId={user.id} />
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Historique d'inscriptions
+        Historique d'inscripciones
       </Typography>
       <CourseRegistrationEventGrid userId={user.id} />
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>

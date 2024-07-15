@@ -1,3 +1,3 @@
-import ContentInscription from '../../contents/inscription.mdx';
+import ContentInscripcion from '../../contents/inscripcion.mdx';
 
-export default ContentInscription;
+export default ContentInscripcion;

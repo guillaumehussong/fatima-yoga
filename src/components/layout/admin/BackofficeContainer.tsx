@@ -40,7 +40,7 @@ export const BackofficeContainer: React.FC<BackofficeContainerProps> = ({ childr
           title: 'Organisation',
           children: [
             { title: 'Séances', icon: <DateRange />, url: '/administration/seances' },
-            { title: 'Inscriptions', icon: <Assignment />, url: '/administration/inscriptions' },
+            { title: 'Inscripciones', icon: <Assignment />, url: '/administration/inscripciones' },
             { title: 'Utilisateurs', icon: <People />, url: '/administration/utilisateurs' },
           ]
         },

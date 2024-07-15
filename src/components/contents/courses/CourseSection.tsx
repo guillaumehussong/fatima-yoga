@@ -68,14 +68,14 @@ export const CourseSection: React.FC<CourseSectionProps> = ({ course, imageUrl, 
               },
               { header: 'Lieu', value: location },
               { header: 'Matériel', value: stuff },
-              { header: 'Inscription', value: registration },
+              { header: 'Inscripcion', value: registration },
             ]} />
           </Grid>)}
         </Grid>
         {isRegistrationOnline && (
           <Box textAlign="center">
-            <Link href="/inscription" passHref legacyBehavior>
-              <Button variant="outlined" startIcon={<Assignment />}>Inscription en ligne</Button>
+            <Link href="/inscripcion" passHref legacyBehavior>
+              <Button variant="outlined" startIcon={<Assignment />}>Inscripcion en ligne</Button>
             </Link>
           </Box>
         )}

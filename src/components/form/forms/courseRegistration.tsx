@@ -27,7 +27,7 @@ const CourseRegistrationBatchFormFields = () => (
       <SelectCourse name="courses" multiple />
     </Grid>
     <Grid item xs={12}>
-      <SwitchElement name="notify" label="Notifier les utilisateurs de leur inscription" />
+      <SwitchElement name="notify" label="Notifier les utilisateurs de leur inscripcion" />
     </Grid>
   </Grid>
 );
@@ -45,8 +45,8 @@ const useProceduresToInvalidate = () => {
 
 const commonFormProps = {
   icon: <Person />,
-  urlSuccessFor: () => `/administration/inscriptions`,
-  urlCancel: `/administration/inscriptions`,
+  urlSuccessFor: () => `/administration/inscripciones`,
+  urlCancel: `/administration/inscripciones`,
 };
 
 const querySchema = z.object({
@@ -80,10 +80,10 @@ export const CourseRegistrationCreateBatchForm = () => {
     <CreateFormContent
       {...commonFormProps}
       defaultValues={actualDefaultValues}
-      title="Inscription d'utilisateurs à des séances"
+      title="Inscripcion d'utilisateurs à des séances"
       schema={courseRegistrationCreateSchema}
       mutationProcedure={trpc.courseRegistration.create}
-      successMessage={(data) => data.length + (data.length > 1 ? ` inscriptions ont été effectuées.` : ` inscription a été effectuée.`)}
+      successMessage={(data) => data.length + (data.length > 1 ? ` inscripciones ont été effectuées.` : ` inscripcion a été effectuée.`)}
       invalidate={useProceduresToInvalidate()}
     >
       <CourseRegistrationBatchFormFields />

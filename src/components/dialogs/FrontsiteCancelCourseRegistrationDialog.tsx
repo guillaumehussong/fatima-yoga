@@ -33,7 +33,7 @@ export const FrontsiteCancelCourseRegistrationDialog: React.FC<FrontsiteCancelCo
       onClose={handleClose}
     >
       <DialogTitle>
-        Confirmer la désinscription de la séance
+        Confirmer la désinscripcion de la séance
       </DialogTitle>
       <DialogContent>
         <DialogContentText>
@@ -42,7 +42,7 @@ export const FrontsiteCancelCourseRegistrationDialog: React.FC<FrontsiteCancelCo
             Vous pourrez à tout moment vous y réinscrire, sous réserve qu'il reste de la place.
           </Typography>
           <Typography paragraph sx={{ mb: 0 }}>
-            Notez que la désinscription reste possible jusqu'à <strong>24h</strong> avant le début de la séance.
+            Notez que la désinscripcion reste possible jusqu'à <strong>24h</strong> avant le début de la séance.
           </Typography>
         </DialogContentText>
       </DialogContent>

@@ -78,7 +78,7 @@ const generateParticipantICS = (registrations: Prisma.CourseRegistrationGetPaylo
   const { error, value } = createEvents(
     registrations.map(({ course }) => {
       const common = getCommonCourseFields(course);
-      const url = `${process.env.NEXTAUTH_URL}/mes-inscriptions`;
+      const url = `${process.env.NEXTAUTH_URL}/mes-inscripciones`;
       return {
         ...common,
         uid: uidFor('course', course.id),

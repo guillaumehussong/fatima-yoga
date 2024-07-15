@@ -15,7 +15,7 @@ export default function Redirection() {
         router.replace({ pathname: '/connexion', query: router.query.r ? { r: router.query.r } : undefined });
       } else {
         const canReadBackoffice = Permissions.ReadBackoffice.includes(session.role);
-        const defaultRedirection = canReadBackoffice ? '/administration' : '/inscription';
+        const defaultRedirection = canReadBackoffice ? '/administration' : '/inscripcion';
         const { r: requestedRedirection } = router.query;
         // Prevent open redirect vulnerability
         let sanitizedRequestedRedirection: null | string = null;

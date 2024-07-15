@@ -43,7 +43,7 @@ export const DeleteUserDialog: React.FC<DeleteUserDialogProps> = ({ user, open, 
             Cette opération n'est pas réversible.
           </Typography>
           <Typography paragraph>
-            Remarquez en outre que la suppression n'est possible à la seule condition que l'utilisateur ne se soit jamais connecté au site, et qu'aucune inscription à des séances n'ait été effectuée dans le passé.
+            Remarquez en outre que la suppression n'est possible à la seule condition que l'utilisateur ne se soit jamais connecté au site, et qu'aucune inscripcion à des séances n'ait été effectuée dans le passé.
           </Typography>
         </DialogContentText>
       </DialogContent>

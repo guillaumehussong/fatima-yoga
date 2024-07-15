@@ -20,11 +20,11 @@ interface FrontsiteContainerProps {
 }
 
 const commonSections = [
-  { title: 'Accueil', url: '/' },
-  { title: 'Le Yoga', url: '/yoga' },
-  { title: 'Les séances', url: '/seances' },
-  { title: 'Inscription', url: '/inscription' },
-  { title: 'À propos', url: '/a-propos' },
+  { title: 'Inicio', url: '/' },
+  { title: 'El Yoga', url: '/yoga' },
+  { title: 'Las sesiones', url: '/sesiones' },
+  { title: 'Inscripción', url: '/inscripcion' },
+  { title: 'Acerca de', url: '/acerca-de' },
 ];
 
 export const FrontsiteContainer: React.FC<FrontsiteContainerProps> = ({ children }) => {
@@ -42,18 +42,18 @@ export const FrontsiteContainer: React.FC<FrontsiteContainerProps> = ({ children
         children: [
           ...(Permissions.ReadBackoffice.includes(session.role) ? [{
             children: [
-              { title: 'Administration', icon: <AdminPanelSettings />, url: '/administration' },
+              { title: 'Administración', icon: <AdminPanelSettings />, url: '/administracion' },
             ]
           }] : []),
           {
             children: [
-              { title: 'Inscription à des séances', icon: <Assignment />, url: '/inscription' },
-              { title: 'Consulter mes inscriptions', icon: <DateRange />, url: '/mes-inscriptions' },
+              { title: 'Inscripción a sesiones', icon: <Assignment />, url: '/inscripcion' },
+              { title: 'Consultar mis inscripciones', icon: <DateRange />, url: '/mis-inscripciones' },
             ]
           },
           {
             children: [
-              { title: 'Se déconnecter', icon: <Logout />, onClick: () => signOut({ redirect: true, callbackUrl: '/' }) },
+              { title: 'Cerrar sesión', icon: <Logout />, onClick: () => signOut({ redirect: true, callbackUrl: '/' }) },
             ],
           },
         ],
@@ -64,17 +64,17 @@ export const FrontsiteContainer: React.FC<FrontsiteContainerProps> = ({ children
   return (
     <FrontsiteContainerLayout
       logo={<IconYoga />}
-      title="Yoga Sof"
+      title="Fátima Domínguez Yoga"
       url="/"
       sections={commonSections}
       profile={profile}
       signInUrl={`/connexion?r=${encodeURIComponent(router.asPath)}`}
       footerSections={[
         ...commonSections,
-        { title: 'Règlement intérieur', url: '/reglement-interieur' },
-        { title: 'Politique de confidentialité', url: '/confidentialite' },
+        { title: 'Reglamento interno', url: '/reglamento-interno' },
+        { title: 'Política de privacidad', url: '/privacidad' },
       ]}
-      footerSubtitle={['Sophie Richaud-Cassayre', 'Enseignante de Yoga à Hésingue']}
+      footerSubtitle={['Fátima Mariá Domínguez', 'Profesora de Yoga en El Salvador']}
       footerLinks={[
         {
           url: FACEBOOK_PAGE_URL,

@@ -30,9 +30,9 @@ const withContent = <Props extends {},>
         <br />
         <a href={process.env.NEXTAUTH_URL}>yoga-sof.fr</a>
         <br />
-        Vous pouvez consulter ou annuler vos inscriptions en suivant
+        Vous pouvez consulter ou annuler vos inscripciones en suivant
         {' '}
-        <a href={`${process.env.NEXTAUTH_URL}/mes-inscriptions`}>ce lien</a>
+        <a href={`${process.env.NEXTAUTH_URL}/mes-inscripciones`}>ce lien</a>
         .
       </>
     ),
@@ -71,7 +71,7 @@ export const EmailMessageTemplateCourseAdultReminderNewcomer: EmailMessageWithCo
   subject: ({ course }) => `Votre ${displayCourseName(course, false)}`,
   body: ({ course }) => (
     <>
-      J'ai le plaisir de vous rappeler votre inscription à la
+      J'ai le plaisir de vous rappeler votre inscripcion à la
       {' '}
       {displayCourseName(course, false)}
       ,
@@ -120,15 +120,15 @@ export const EmailMessageTemplateCourseAdultReminderNewcomer: EmailMessageWithCo
 
 export const EmailMessageTemplateCourseAdultRegistrationConfirmation: EmailMessageWithContentTemplate<{ registrations: { id: CourseRegistration['id'], course: Parameters<typeof displayCourseName>[0] }[] }> = withContent({
   type: EmailMessageType.SESSION_REGISTRATION,
-  subject: ({ registrations }) => registrations.length !== 1 ? `Vos inscriptions à des séances de yoga` : `Votre inscription à une séance de yoga`,
+  subject: ({ registrations }) => registrations.length !== 1 ? `Vos inscripciones à des séances de yoga` : `Votre inscripcion à une séance de yoga`,
   body: ({ registrations }) => (
     <>
       J'ai le plaisir de vous confirmer
       {' '}
       {registrations.length !== 1 ? (
-        <>vos inscriptions aux séances de yoga suivantes :</>
+        <>vos inscripciones aux séances de yoga suivantes :</>
       ) : (
-        <>votre inscription à la séance de yoga suivante :</>
+        <>votre inscripcion à la séance de yoga suivante :</>
       )}
       <ul>
         {[...registrations].sort(({ course: { dateStart: d1 } }, { course: { dateStart: d2 } }) => d1 < d2 ? -1 : 1).map(({ id, course }) => (

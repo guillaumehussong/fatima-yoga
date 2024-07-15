@@ -33,11 +33,11 @@ export const CourseRegistrationForReplacementGrid: React.FunctionComponent<Cours
       minWidth: 150,
       flex: 1,
       valueGetter: ({ row }: GridValueGetterParams<CourseRegistrationItem>) => row.isUserCanceled,
-      renderCell: ({ value }: GridRenderCellParams<CourseRegistrationItem, boolean>) => value ? `Inscription annulée` : `Séance annulée`,
+      renderCell: ({ value }: GridRenderCellParams<CourseRegistrationItem, boolean>) => value ? `Inscripcion annulée` : `Séance annulée`,
     },
     relativeTimestamp({
       field: 'createdAt',
-      headerName: `Date d'inscription`,
+      headerName: `Date d'inscripcion`,
       flex: 1,
     }),
   ];
