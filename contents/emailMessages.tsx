@@ -32,7 +32,7 @@ const withContent = <Props extends {},>
         <br />
         Vous pouvez consulter ou annuler vos inscripciones en suivant
         {' '}
-        <a href={`${process.env.NEXTAUTH_URL}/mes-inscripciones`}>ce lien</a>
+        <a href={`${process.env.NEXTAUTH_URL}/mis-inscripciones`}>ce lien</a>
         .
       </>
     ),
@@ -85,7 +85,7 @@ export const EmailMessageTemplateCourseAdultReminderNewcomer: EmailMessageWithCo
       Essayez d'être ponctuel(le) en arrivant 5 minutes avant pour vous installer.
       <br />
       <br />
-      Apportez simplement votre tapis et votre couverture (ou plaid), portez une tenue confortable, mais vous pouvez également vous changer et utiliser les toilettes sur place.
+      Apportez simplement votre tapis et votre couverture (ou plaid), portez une tenue confortable.
       <br />
       <br />
       Vous trouverez dans la salle ce qu'il faut pour adapter votre posture et pratiquer sereinement.
@@ -99,17 +99,6 @@ export const EmailMessageTemplateCourseAdultReminderNewcomer: EmailMessageWithCo
       {' '}
       Cette séance de Yoga est un moment pour vous, profitez-en complètement !
       <br />
-      <br />
-      Informations pratiques concernant le stationnement :
-      <ul>
-        <li>Vous pouvez stationner votre vélo sur le côté gauche du jardin, près du conteneur vert.</li>
-        <li>
-          Pour les véhicules, privilégiez le parking du cimetière, juste à l'entrée de la rue des Moissonneurs pour ne pas déranger les voisins,
-          {' '}
-          l'impasse est petite, il n'y a qu'une place devant la maison.
-        </li>
-        <li>Pour les trajets courts, privilégiez la marche ou le vélo.</li>
-      </ul>
       <br />
       Je vous souhaite une belle pratique !
       <br />

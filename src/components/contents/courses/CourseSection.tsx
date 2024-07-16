@@ -75,7 +75,7 @@ export const CourseSection: React.FC<CourseSectionProps> = ({ course, imageUrl, 
         {isRegistrationOnline && (
           <Box textAlign="center">
             <Link href="/inscripcion" passHref legacyBehavior>
-              <Button variant="outlined" startIcon={<Assignment />}>Inscripcion en ligne</Button>
+              <Button variant="outlined" startIcon={<Assignment />}>Inscripcion en linea</Button>
             </Link>
           </Box>
         )}

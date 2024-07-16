@@ -38,7 +38,7 @@ export const HomepageBanner: React.FC<HomepageBannerProps> = ({ title, subtitle,
           <Box
             sx={{
               position: 'relative',
-              p: { xs: 3, md: 6 },
+              p: { xs: 3, md: 12 },
             }}
             style={{ textShadow: 'black 2px 2px 4px', textAlign: 'center' }}
           >

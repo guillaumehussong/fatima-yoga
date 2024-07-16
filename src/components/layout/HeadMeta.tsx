@@ -20,12 +20,12 @@ export const HeadMeta: React.FC<HeadMetaProps> = ({ title, description }) => {
       {description !== undefined && (
         <meta name="description" content={description} />
       )}
-      <meta name="keywords" content="cours, yoga, el salvador, san salvador, santa tecla" />
+      <meta name="keywords" content="curso, yoga, el salvador, san salvador, santa tecla" />
 
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <link rel="icon" type="image/svg+xml" href="/icon.svg" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-      <link rel="manifest" href="/manifest.webmanifest" />
+      <link rel="manifest" href="/manifest.webmanifest" crossOrigin="use-credentials" />
 
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="theme-color" content="#fff" />
