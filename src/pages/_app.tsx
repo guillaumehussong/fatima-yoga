@@ -15,6 +15,9 @@ import { GuardedBackofficeContainer } from '../components/layout/admin/GuardedBa
 import { frFR } from '@mui/x-data-grid';
 import { frFR as pickersfrFR } from '@mui/x-date-pickers';
 import { frFR as corefrFR } from '@mui/material/locale';
+import { esES } from '@mui/x-data-grid';
+import { esES as pickersesES } from '@mui/x-date-pickers';
+import { esES as coreesES } from '@mui/material/locale';
 import { FrontsiteContainer } from '../components/layout/public/FrontsiteContainer';
 import { SnackbarProvider } from 'notistack';
 import { InternalLink } from '../components/contents/common/InternalLink';
@@ -43,8 +46,14 @@ const theme = createTheme({
       fontFamily: 'Nunito',
     },
     palette: {
+      primary: {
+        main: '#EFD4C3', // your custom primary color
+      },
+      secondary: {
+        main: '#BAC0A5',
+      },
       background: {
-        default: "#fcfcfc"
+        default: "#fcfcfc",
       },
     },
     components: {
@@ -57,9 +66,9 @@ const theme = createTheme({
       },
     },
   },
-  frFR,
-  pickersfrFR,
-  corefrFR);
+  esES,
+  pickersesES,
+  coreesES);
 
 z.setErrorMap(zodFrenchErrorMap);
 

@@ -17,6 +17,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { OptionalLink } from '../../OptionalLink';
+import { te } from 'date-fns/locale';
 
 interface MenuTitleProps {
   logo: React.ReactElement;
@@ -87,7 +88,26 @@ const MenuSections: React.FC<MenuSectionsProps> = ({ sections, onClick }) => {
             noWrap
             variant="body2"
             onClick={() => onClick && onClick()}
-            sx={{ p: 1, flexShrink: 0, textDecoration: url === router.pathname ? undefined : 'none' }}
+            sx={{
+              p: 1,
+              flexShrink: 0,
+              textDecoration: 'none',
+              position: 'relative',
+              '&:before': {
+                content: '""',
+                position: 'absolute',
+                width: url === router.pathname ? '100%' : '0%',
+                height: '2px',
+                bottom: 0,
+                left: url === router.pathname ? '0%' : '50%',
+                backgroundColor: 'primary.main',
+                transition: 'width 0.3s, left 0.3s',
+              },
+              '&:hover:before': {
+                width: '100%',
+                left: 0,
+              },
+            }}
           >
             {title}
           </MuiLink>
@@ -119,8 +139,18 @@ const ProfileMenuButton: React.FC<ProfileMenuButtonProps> = ({ profile, signInUr
         <Skeleton variant="text" width={150} />
       ) : profile === null ? (
         <Link href={signInUrl} passHref legacyBehavior>
-          <Button variant="outlined" size="small">
-            Connexion
+          <Button
+            variant="outlined"
+            size="small"
+            sx={{
+              backgroundColor: 'primary.main',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'primary.dark',
+              },
+            }}
+          >              
+            Conexión
           </Button>
         </Link>
       ) : (
@@ -203,21 +233,32 @@ function Header({logo, title, url: titleUrl, sections, profile, signInUrl}: Head
   return (
     <>
       <Toolbar sx={{ ...toolbarSx, display: { xs: 'none', md: 'flex' } }}>
-        <MenuTitle logo={logo} title={title} titleUrl={titleUrl}/>
-        <MenuSections sections={sections}/>
-        <ProfileMenuButton profile={profile} signInUrl={signInUrl}/>
+        <MenuTitle logo={logo} title={title} titleUrl={titleUrl} />
+        <Box sx={{ flexGrow: 1 }} />
+        <Grid container alignItems="center" justifyContent="flex-end" spacing={2}>
+          <Grid item>
+            <MenuSections sections={sections} />
+          </Grid>
+          <Grid item>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <ProfileMenuButton profile={profile} signInUrl={signInUrl} />
+            </Box>
+          </Grid>
+        </Grid>
       </Toolbar>
       <Toolbar sx={{ ...toolbarSx, display: { xs: 'flex', md: 'none' } }}>
-        <IconButton onClick={() => setMenuOpen(!isMenuOpen)} sx={{ position: 'absolute', left: 0, top: { xs: 8, sm: 12 } }}><MenuIcon/></IconButton>
+        <IconButton onClick={() => setMenuOpen(!isMenuOpen)} sx={{ position: 'absolute', left: 0, top: { xs: 8, sm: 12 } }}><MenuIcon /></IconButton>
         <Box alignItems="center" sx={{ mt: { xs: 1.4, sm: 2 }, mb: -10 }}>
-          <MenuTitle logo={logo} title={title} titleUrl={titleUrl} onClick={() => setMenuOpen(false)}/>
+          <MenuTitle logo={logo} title={title} titleUrl={titleUrl} onClick={() => setMenuOpen(false)} />
         </Box>
         <Collapse in={isMenuOpen}>
           <Box sx={{ mt: 7 }} />
           <Stack direction="column" alignItems="center">
-            <MenuSections sections={sections} onClick={() => setMenuOpen(false)}/>
-            <ProfileMenuButton profile={profile} signInUrl={signInUrl}/>
-            <Box sx={{ height: 8 }}/>
+            <MenuSections sections={sections} onClick={() => setMenuOpen(false)} />
+            <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+              <ProfileMenuButton profile={profile} signInUrl={signInUrl} />
+            </Box>
+            <Box sx={{ height: 8 }} />
           </Stack>
         </Collapse>
       </Toolbar>

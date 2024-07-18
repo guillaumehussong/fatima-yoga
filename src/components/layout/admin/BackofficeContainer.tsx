@@ -1,5 +1,4 @@
 import React from 'react';
-import { BackofficeContainerLayout } from './BackofficeContainerLayout';
 import {
   AdminPanelSettings,
   Assignment, CardGiftcard,
@@ -9,13 +8,15 @@ import {
   Euro, Groups,
   Home,
   Logout, Payments,
-  People, Settings, SwapHoriz, Timeline
+  People, Settings, SwapHoriz, Timeline,
 } from '@mui/icons-material';
 import { signOut, useSession } from 'next-auth/react';
 import { Typography } from '@mui/material';
-import pkg from '../../../../package.json';
 import { useRouter } from 'next/router';
+import pkg from '../../../../package.json';
+import { BackofficeContainerLayout } from './BackofficeContainerLayout';
 import { displayUserName } from '../../../common/display';
+// eslint-disable-next-line import/extensions
 import { RoleNames } from '../../../common/role';
 
 interface BackofficeContainerProps {
@@ -33,7 +34,7 @@ export const BackofficeContainer: React.FC<BackofficeContainerProps> = ({ childr
       menu={[
         {
           children: [
-            { title: 'Aperçu', icon: <Dashboard />, url: '/administration' }
+            { title: 'Aperçu', icon: <Dashboard />, url: '/administration' },
           ],
         },
         {
@@ -42,7 +43,7 @@ export const BackofficeContainer: React.FC<BackofficeContainerProps> = ({ childr
             { title: 'Séances', icon: <DateRange />, url: '/administration/seances' },
             { title: 'Inscripciones', icon: <Assignment />, url: '/administration/inscripciones' },
             { title: 'Utilisateurs', icon: <People />, url: '/administration/utilisateurs' },
-          ]
+          ],
         },
         {
           title: 'Comptabilité',
@@ -72,7 +73,7 @@ export const BackofficeContainer: React.FC<BackofficeContainerProps> = ({ childr
         children: [
           { title: `${session!.displayName ?? session!.displayEmail ?? ''} (${RoleNames[session!.role]})`, icon: <People />, url: { pathname: '/administration/utilisateurs/[id]', query: { id: session?.userId } } },
           { title: 'Se déconnecter', icon: <Logout />, onClick: () => signOut({ redirect: true, callbackUrl: '/' }) },
-        ]
+        ],
       }}
       footer={(
         <Typography align="center">
@@ -83,4 +84,4 @@ export const BackofficeContainer: React.FC<BackofficeContainerProps> = ({ childr
       {children}
     </BackofficeContainerLayout>
   );
-}
+};
