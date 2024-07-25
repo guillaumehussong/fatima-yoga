@@ -225,6 +225,7 @@ function Header({logo, title, url: titleUrl, sections, profile, signInUrl}: Head
   const toolbarSx = {
     px: '0 !important',
     mb: 2,
+    height: '10vh',
     borderBottom: 1,
     borderColor: 'divider',
     flexDirection: { xs: 'column', md: 'row' }

@@ -24,7 +24,7 @@
     "quotes": ["error", "single", { "allowTemplateLiterals": true }],
     "sort-imports": ["error", { "ignoreDeclarationSort": true }],
     "unused-imports/no-unused-imports": "error",
-
     "jsx-a11y/control-has-associated-label": "off"
-  }
+  },
+  "ignorePatterns": ["*.tsx"]
 }
