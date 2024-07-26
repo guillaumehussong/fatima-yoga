@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Grid, List, ListItem, ListItemText, Paper } from '@mui/material';
+import { tr } from 'date-fns/locale';
 
 interface HomepageBannerProps {
   imageUrl: string;
   items: string[];
 }
 
-export const HomepageBanner: React.FC<HomepageBannerProps> = ({ imageUrl, items }) => {
+export const HomepageBanner: React.FC<HomepageBannerProps> = ({ items }) => {
 
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
@@ -30,19 +31,19 @@ export const HomepageBanner: React.FC<HomepageBannerProps> = ({ imageUrl, items 
         backgroundSize: '100%',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'top',
-        backgroundImage: `url(${imageUrl})`,
-        backgroundColor: '#3E464C',
+        backgroundColor: 'transparent',
         width: '100vw',
-        height: '100vh', // Increase the height as needed
+        height: '90vh', // Increase the height as needed
         left: '50%',
         right: '50%',
+        zIndex: 100,
         p: 0,
         m: 0,
         transform: 'translateX(-50%)',
       }}
     >
       {/* Increase the priority of the background image */}
-      {<img style={{ display: 'none' }} src={imageUrl} alt="Background" />}
+      {<img style={{ display: 'none' }} src="" alt="Background" />}
       <Box
         sx={{
           position: 'absolute',
@@ -58,7 +59,7 @@ export const HomepageBanner: React.FC<HomepageBannerProps> = ({ imageUrl, items 
           <Box
             sx={{
               position: 'relative',
-              px: { xs: 3, md: 70 },
+              px: { xs: 3, md: 52 },
               py: { xs: 2, md: 40 },
               display: 'flex',
               alignItems: 'center',

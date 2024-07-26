@@ -33,7 +33,6 @@ export const meta = {
 };
 
 <HomepageBanner
-  imageUrl="/images/background1.png"
   items={[
     'Bienestar Corporativo',
     'Yoga',
@@ -92,4 +91,4 @@ Venez vivre une pause privilégiée loin de la dispersion et de l'agitation du m
   author="Sri B.K.S Iyengar"
 /> */}
 
-export default ({ children }) => <FrontsiteContent {...meta}>{children}</FrontsiteContent>
+export default ({ children }) => <FrontsiteContent {...meta} backgroundUrl="/images/bg1.jpg">{children}</FrontsiteContent>

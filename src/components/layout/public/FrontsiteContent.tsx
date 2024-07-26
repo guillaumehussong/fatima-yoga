@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import { HeadMeta } from '../HeadMeta';
+import Background from '../Background'; // Assurez-vous d'importer correctement le composant
 
 interface FrontsiteContentProps {
   title: string;
@@ -8,17 +9,21 @@ interface FrontsiteContentProps {
   hideTitle?: boolean;
   description?: string;
   children: React.ReactNode;
+  backgroundUrl: string; // Ajout d'une propriété pour l'URL de l'image de fond
 }
 
-export const FrontsiteContent: React.FC<FrontsiteContentProps> = ({ title, hideTitleMeta, hideTitle, description, children }) => {
+export const FrontsiteContent: React.FC<FrontsiteContentProps> = ({ title, hideTitleMeta, hideTitle, description, children, backgroundUrl }) => {
   const subtitle = `Yoga Sof Hésingue`;
   return (
     <>
       <HeadMeta title={hideTitleMeta ? subtitle : `${title} · ${subtitle}`} description={description} />
-      {title && !hideTitle && (
-        <Typography variant="h4">{title}</Typography>
-      )}
-      {children}
+      <Background imageUrl={backgroundUrl} /> {/* Ajout du composant Background */}
+      <Box sx={{ position: 'relative' }}>
+        {title && !hideTitle && (
+          <Typography variant="h4">{title}</Typography>
+        )}
+        {children}
+      </Box>
     </>
   );
-}
+};

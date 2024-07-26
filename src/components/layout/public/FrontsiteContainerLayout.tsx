@@ -18,6 +18,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { OptionalLink } from '../../OptionalLink';
 import { te } from 'date-fns/locale';
+import zIndex from '@mui/material/styles/zIndex';
 
 interface MenuTitleProps {
   logo: React.ReactElement;
@@ -224,10 +225,9 @@ function Header({logo, title, url: titleUrl, sections, profile, signInUrl}: Head
 
   const toolbarSx = {
     px: '0 !important',
+    zIndex: 10,
     mb: 2,
     height: '10vh',
-    borderBottom: 1,
-    borderColor: 'divider',
     flexDirection: { xs: 'column', md: 'row' }
   };
 
