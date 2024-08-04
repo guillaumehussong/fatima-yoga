@@ -118,7 +118,7 @@ export const LoginCard: React.FC<LoginCardProps> = ({ providers }) => {
 
   return (
     <LoginCardLayout
-      title="Connexion à Yoga Sof"
+      title="Connexion à Fátima Domíguez Yoga"
       information={!!session && (
         <>Vous êtes déjà connecté en tant que <strong>{session.displayName || session.displayEmail || '?'}</strong>. Vous pouvez néanmoins vous re-connecter sur un autre compte.</>
       )}

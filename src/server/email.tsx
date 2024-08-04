@@ -12,7 +12,7 @@ import {
 } from '../../contents/emailMessages';
 import Mail from 'nodemailer/lib/mailer';
 
-const NAME_FROM = 'Yoga Sof';
+const NAME_FROM = 'Fátima Domíguez Yoga';
 
 export const NODEMAILER_CONFIGURATION = {
   host: process.env.EMAIL_SERVER_HOST,

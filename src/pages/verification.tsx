@@ -8,7 +8,7 @@ const EmailSentPage: React.FC = () => {
   return (
     <>
       <CssBaseline />
-      <HeadMeta title="Connexion à Yoga Sof : e-mail envoyé" />
+      <HeadMeta title="Connexion à Fátima Domíguez Yoga : e-mail envoyé" />
       <Grid container justifyContent="center">
         <Grid item xs={12} sm={9} md={6} lg={4} xl={3}>
           <Box sx={{ my: 3, mx: 2 }}>

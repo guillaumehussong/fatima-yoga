@@ -40,9 +40,28 @@ export const meta = {
     'Saludable',
     'Mindfulness'
   ]}
+  leftText="Welcome to Great Fitness, Los Angeles' premier destination for yoga and fitness enthusiasts. Nestled in the vibrant heart of the city, we offer a sanctuary where mind, body, and spirit align."
 />
+<HomepageDivider>Nos servicios</HomepageDivider>
+<HomepageCards>
+  <HomepageCards.Card
+    title="Grupos reducidos"
+    description="Las sesiones se llevan a cabo en grupos pequeños."
+    icon={<PeopleAltTwoTone fontSize="large" />}
+  />
+  <HomepageCards.Card
+    title="Personalización"
+    description="Adaptación de las posturas de acuerdo a sus posibilidades y morfología."
+    icon={<AutoAwesomeTwoTone fontSize="large" />}
+  />
+  <HomepageCards.Card
+    title="Flexibilidad"
+    description={`Las sesiones para adultos pueden ser elegidas "a la carta".`}
+    icon={<CalendarMonthTwoTone fontSize="large" />}
+  />
+</HomepageCards>
 
-{/* <HomepageDivider arrows>Nos séances de Yoga</HomepageDivider>
+<HomepageDivider>Nos séances de Yoga</HomepageDivider>
 
 <HomepageCourses>
   <HomepageCourses.Course course={courses.YOGA_ADULT} imageUrl="/images/arbre-ocean.jpg" index={0}>
@@ -89,6 +108,6 @@ Venez vivre une pause privilégiée loin de la dispersion et de l'agitation du m
 <HomepageQuote
   quote="C'est à travers l'alignement de mon corps que j'ai découvert l'alignement de mon esprit, de mon Être et de mon intelligence."
   author="Sri B.K.S Iyengar"
-/> */}
+/> 
 
 export default ({ children }) => <FrontsiteContent {...meta} backgroundUrl="/images/bg1.jpg">{children}</FrontsiteContent>

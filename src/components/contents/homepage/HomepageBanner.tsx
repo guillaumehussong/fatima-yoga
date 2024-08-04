@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Grid, List, ListItem, ListItemText, Paper } from '@mui/material';
+import { Box, Grid, List, ListItem, ListItemText, Paper, Typography } from '@mui/material';
 import { tr } from 'date-fns/locale';
 
 interface HomepageBannerProps {
   imageUrl: string;
   items: string[];
+  leftText: string;
 }
 
-export const HomepageBanner: React.FC<HomepageBannerProps> = ({ items }) => {
+export const HomepageBanner: React.FC<HomepageBannerProps> = ({ items, leftText }) => {
 
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
@@ -42,49 +43,61 @@ export const HomepageBanner: React.FC<HomepageBannerProps> = ({ items }) => {
         transform: 'translateX(-50%)',
       }}
     >
-      {/* Increase the priority of the background image */}
-      {<img style={{ display: 'none' }} src="" alt="Background" />}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          backgroundColor: 'rgba(0,0,0,0)',
-        }}
-      />
-      <Grid container>
-        <Grid item xs={12}>
+      {/*<Grid container>
+        {/* Bloc de texte à gauche 
+        <Grid item xs={12} md={6} lg={4}>
           <Box
             sx={{
               position: 'relative',
-              px: { xs: 3, md: 52 },
+              px: { xs: 3, md: 10 },
+              py: { xs: 2, md: 4 },
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              textAlign: 'left',
+              height: '100%',
+              fontSize: '22px',
+              maxWidth: '800px', // Définir une largeur maximale pour le texte
+              whiteSpace: 'normal', // Permettre au texte de passer à la ligne
+            }}
+          >
+            <Typography variant="h5" sx={{ color: 'black', fontSize: 18}}>
+              {leftText}
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6} lg={14}>
+          <Box
+            sx={{
+              position: 'relative',
+              px: { xs: 3, md: 44 },
               py: { xs: 2, md: 40 },
               display: 'flex',
-              alignItems: 'center',
+              justifyContent: 'flex-end',
+              alignItems: 'flex-start',
+              textAlign: 'right',
             }}
           >
             <List sx={{ display: 'flex', flexDirection: 'column', p: 3 }}>
-                {items.map((item, index) => (
-                  <ListItem
+              {items.map((item, index) => (
+                <ListItem
                   key={index}
                   sx={{
                     width: 'auto',
                     color: 'black',
-                    textAlign: 'center',
+                    textAlign: 'right',
                     fontSize: '32px',
                     opacity: visibleItems.includes(index) ? 1 : 0,
                     transition: 'opacity 1s ease-in',
                   }}
                 >
-                <ListItemText primary={item} />
-              </ListItem>
+                  <ListItemText primary={item} />
+                </ListItem>
               ))}
             </List>
           </Box>
         </Grid>
-      </Grid>
+      </Grid>*/}
     </Paper>
   );
 };

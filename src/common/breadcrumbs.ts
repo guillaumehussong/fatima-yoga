@@ -10,12 +10,12 @@ const make = <T extends TreeNode<T>>(t: T): T => t;
 
 const Root = make({
   value: {
-    title: 'Yoga Sof',
+    title: 'Fátima Domíguez Yoga',
     url: '/administration',
   },
   Preview: {
     value: {
-      title: 'Yoga Sof',
+      title: 'Fátima Domíguez Yoga',
       url: '/administration',
     }
   }

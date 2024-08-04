@@ -29,13 +29,13 @@ export const HeadMeta: React.FC<HeadMetaProps> = ({ title, description }) => {
 
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="theme-color" content="#fff" />
-      <meta name="application-name" content="Yoga Sof" />
+      <meta name="application-name" content="Fátima Domíguez Yoga" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      <meta name="apple-mobile-web-app-title" content="Yoga Sof" />
+      <meta name="apple-mobile-web-app-title" content="Fátima Domíguez Yoga" />
 
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Yoga Sof" />
+      <meta property="og:site_name" content="Fátima Domíguez Yoga" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={title} />
       {description !== undefined && (

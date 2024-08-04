@@ -29,12 +29,12 @@ export const BackofficeContainer: React.FC<BackofficeContainerProps> = ({ childr
 
   return (
     <BackofficeContainerLayout
-      title="Yoga Sof"
+      title="Fátima Domíguez Yoga"
       url="/administration"
       menu={[
         {
           children: [
-            { title: 'Aperçu', icon: <Dashboard />, url: '/administration' },
+            { title: 'Vista Previa', icon: <Dashboard />, url: '/administration' },
           ],
         },
         {

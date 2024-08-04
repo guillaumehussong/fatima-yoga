@@ -9,7 +9,7 @@ import { canGenerateInvoice } from '../src/common/order';
 
 const withContent = <Props extends {},>
 (template: EmailMessageTemplate<Props>): EmailMessageWithContentTemplate<Props> => {
-  const emailTemplatePartSubjectSuffix = '- Yoga Sof';
+  const emailTemplatePartSubjectSuffix = '- Fátima Domíguez Yoga';
   const emailSubject = (subject: string) => `${subject} ${emailTemplatePartSubjectSuffix}`;
   return {
     type: template.type,
@@ -142,7 +142,7 @@ export const EmailMessageTemplateOrderCreatedInformation: EmailMessageWithConten
   subject: () => `Confirmation de paiement`,
   body: ({ order }) => (
     <>
-      Je confirme bonne réception du paiement d'un montant de {order?.payment?.amount ?? 0} € en faveur de Yoga Sof.
+      Je confirme bonne réception du paiement d'un montant de {order?.payment?.amount ?? 0} € en faveur de Fátima Domíguez Yoga.
       {canGenerateInvoice(order) && (
         <>
           <br />
@@ -156,7 +156,7 @@ export const EmailMessageTemplateOrderCreatedInformation: EmailMessageWithConten
   attachments: async (prisma, { order }) => {
     if (canGenerateInvoice(order)) {
       const file = await generatePdfOrderInvoice(prisma, { where: { id: order.id } });
-      return [{ filename: `Facture n°${order.id} - Yoga Sof.pdf`, file }];
+      return [{ filename: `Facture n°${order.id} - Fátima Domíguez Yoga.pdf`, file }];
     } else {
       return [];
     }

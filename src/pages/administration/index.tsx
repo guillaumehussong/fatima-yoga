@@ -9,7 +9,7 @@ import { CourseRegistrationEventGrid } from '../../components/grid/grids/CourseR
 const AdminHomeContent: React.FC = () => {
   return (
     <BackofficeContent
-      title="Aperçu"
+      title="Vista Previa"
       icon={<Dashboard />}
     >
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>

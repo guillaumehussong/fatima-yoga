@@ -2,11 +2,11 @@
 ===
 
 <p align="center">
-  Website for the <b>Yoga Sof</b> organization
+  Website for the <b>Fátima Domíguez Yoga</b> organization
 </p>
 
 <p align="center">
-  <i>Site pour l'organisation <b>Yoga Sof</b></i>
+  <i>Site pour l'organisation <b>Fátima Domíguez Yoga</b></i>
 </p>
 
 <img src="cover.png" alt="Cover">
@@ -62,6 +62,6 @@ For a normal update, you may use the command `npm run update-production`. This c
 
 The source code is made available under the terms of the MIT license.
 
-Please do not reuse the name of our association ("Yoga Sof"), or reuse the photos in an inappropriate way.
+Please do not reuse the name of our association ("Fátima Domíguez Yoga"), or reuse the photos in an inappropriate way.
 
 If you are interested in having a similar website, contact us at contact[at]yoga-sof[dot]fr

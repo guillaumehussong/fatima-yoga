@@ -15,7 +15,7 @@ export const sendVerificationRequest: EmailConfig['sendVerificationRequest'] = a
   await transport.sendMail({
     to: email,
     from,
-    subject: `Connexion à Yoga Sof (${host})`,
+    subject: `Connexion à Fátima Domíguez Yoga (${host})`,
     text: text({ url, host }),
     html: html({ url, host, email }),
   })
@@ -74,5 +74,5 @@ const html = ({ url, host, email }: { url: string, host: string, email: string }
 };
 
 const text = ({ url, host }: { url: string, host: string }) => {
-  return `Connexion à Yoga Sof (${host})\n${url}\n\n`
+  return `Connexion à Fátima Domíguez Yoga (${host})\n${url}\n\n`
 };

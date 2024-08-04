@@ -21,7 +21,17 @@ const HomepageCourse: React.FC<HomepageCourseProps> = ({ course, imageUrl, index
       <Grid item xs={12}>
         <Link href={`/seances#${anchor}`} passHref legacyBehavior>
           <CardActionArea>
-            <Card elevation={4} sx={{ display: { xs: 'inherit', md: 'flex' } }}>
+            <Card elevation={4} sx={{ 
+              display: { xs: 'inherit', md: 'flex' },
+              boxShadow: '0px 0px 0px rgba(0, 0, 0, 0)',
+              
+              }}>
+              <CardMedia
+                component="img"
+                sx={{ width: { md: 300 }, height: { xs: 300, md: 'inherit' } }}
+                image={imageUrl}
+                alt="Image d'illustration"
+              />
               <CardContent sx={{ flex: 1 }}>
                 <Typography component="h2" variant="h5" sx={{ mb: 1 }}>
                   Séances de {CourseTypeNames[type]}
@@ -34,12 +44,6 @@ const HomepageCourse: React.FC<HomepageCourseProps> = ({ course, imageUrl, index
                   <Chip icon={<AccessTime />} label={duration} variant="outlined" sx={{ m: 0.5 }} />
                 </Grid>
               </CardContent>
-              <CardMedia
-                component="img"
-                sx={{ width: { md: 300 }, height: { xs: 300, md: 'inherit' } }}
-                image={imageUrl}
-                alt="Image d'illustration"
-              />
             </Card>
           </CardActionArea>
         </Link>

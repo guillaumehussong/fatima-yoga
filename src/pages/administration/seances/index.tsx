@@ -15,7 +15,7 @@ import { useBackofficeWritePermission } from '../../../components/hooks/usePermi
   const { data: session } = useSession();
 
   return (
-    <ContentLayout title="Aperçu" icon={BsKanban} breadcrumb={BREADCRUMB_OVERVIEW}>
+    <ContentLayout title="Fátima Domíguez Yoga" icon={BsKanban} breadcrumb={BREADCRUMB_OVERVIEW}>
       <h2 className="h5">Planning</h2>
 
       <CourseCards readonly />

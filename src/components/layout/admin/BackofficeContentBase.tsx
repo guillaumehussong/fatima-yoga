@@ -9,7 +9,7 @@ interface BackofficeContentBaseProps {
 export const BackofficeContentBase: React.FC<BackofficeContentBaseProps> = ({ title, children }) => {
   return (
     <>
-      <HeadMeta title={`${title} · Yoga Sof`} />
+      <HeadMeta title={`${title} · Fátima Domíguez Yoga`} />
       {children}
     </>
   );

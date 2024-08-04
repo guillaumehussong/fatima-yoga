@@ -22,7 +22,7 @@ interface FrontsiteContainerProps {
 const commonSections = [
   { title: 'Inicio', url: '/' },
   { title: 'El Yoga', url: '/yoga' },
-  { title: 'Las sesiones', url: '/sesiones' },
+  //{ title: 'Las sesiones', url: '/sesiones' },
   { title: 'Inscripción', url: '/inscripcion' },
   { title: 'Acerca de', url: '/acerca-de' },
 ];
@@ -42,7 +42,7 @@ export const FrontsiteContainer: React.FC<FrontsiteContainerProps> = ({ children
         children: [
           ...(Permissions.ReadBackoffice.includes(session.role) ? [{
             children: [
-              { title: 'Administración', icon: <AdminPanelSettings />, url: '/administracion' },
+              { title: 'Administración', icon: <AdminPanelSettings />, url: '/administration' },
             ]
           }] : []),
           {

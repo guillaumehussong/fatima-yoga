@@ -170,7 +170,7 @@ const UserTabPanelContent: React.FC<UserTabPanelProps> = ({ userId, publicAccess
         Adhésions
       </Typography>
       <Typography paragraph>
-        Vos adhésions à l'association Yoga Sof en tant que membre sont listées ci-dessous.
+        Vos adhésions à l'association Fátima Domíguez Yoga en tant que membre sont listées ci-dessous.
       </Typography>
       <FrontsiteMembershipGrid userId={userId} />
       <Typography variant="h5" component="div" sx={{ my: 2 }}>

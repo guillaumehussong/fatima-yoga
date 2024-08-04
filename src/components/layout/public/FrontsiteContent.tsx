@@ -13,7 +13,7 @@ interface FrontsiteContentProps {
 }
 
 export const FrontsiteContent: React.FC<FrontsiteContentProps> = ({ title, hideTitleMeta, hideTitle, description, children, backgroundUrl }) => {
-  const subtitle = `Yoga Sof Hésingue`;
+  const subtitle = `Fátima Domíguez Yoga Hésingue`;
   return (
     <>
       <HeadMeta title={hideTitleMeta ? subtitle : `${title} · ${subtitle}`} description={description} />

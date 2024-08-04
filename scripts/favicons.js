@@ -4,8 +4,8 @@ const source = "public/icon.svg", output = "public/";
 
 const configuration = {
   path: "/",
-  appName: "Yoga Sof",
-  appShortName: "Yoga Sof",
+  appName: "Fátima Domíguez Yoga",
+  appShortName: "Fátima Domíguez Yoga",
   appDescription: "Pratique du Yoga à Hésingue",
   developerName: "Florian Cassayre",
   developerURL: "https://florian.cassayre.me",

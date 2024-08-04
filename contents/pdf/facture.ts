@@ -204,7 +204,7 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
     },
   } : {}),
   info: {
-    title: `Facture du ${formatDateDDsMMsYYYY(p.date)} adressée à ${p.receiver.fullname} - Yoga Sof`,
+    title: `Facture du ${formatDateDDsMMsYYYY(p.date)} adressée à ${p.receiver.fullname} - Fátima Domíguez Yoga`,
     author: p.transmitter.organization,
     creator: p.transmitter.organization,
     producer: p.transmitter.organization,

@@ -8,16 +8,11 @@ interface HomepageDividerProps {
 }
 
 export const HomepageDivider: React.FC<HomepageDividerProps> = ({ children, arrows }) => {
-  const renderIcon = () => (
-    <ExpandMore sx={{ color: 'grey.700' }} />
-  );
   const renderLabel = () => arrows ? (
-    <Stack direction="row" gap={0.5} alignItems="center">
-      {renderIcon()}
+    <Stack direction="row" spacing={1}>
       {children}
-      {renderIcon()}
-    </Stack>
-  ) : children;
+    </Stack>  
+  ) : children; 
 
   return (
     <Divider textAlign="center" sx={{ mb: 2 }}>
