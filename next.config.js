@@ -7,7 +7,7 @@ const withMDX = require('@next/mdx')({
   },
 });
 
-const nextTypeSafePages = require("next-type-safe-routes/plugin");
+const nextTypeSafePages = require('next-type-safe-routes/plugin');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

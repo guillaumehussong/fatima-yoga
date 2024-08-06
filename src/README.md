@@ -2,11 +2,11 @@
 ===
 
 <p align="center">
-  Website for the <b>Fátima Domíguez Yoga</b> organization
+  Website for the <b>Yoga Sof</b> organization
 </p>
 
 <p align="center">
-  <i>Site pour l'organisation <b>Fátima Domíguez Yoga</b></i>
+  <i>Site pour l'organisation <b>Yoga Sof</b></i>
 </p>
 
 <img src="cover.png" alt="Cover">
@@ -48,7 +48,7 @@ The command essentially does the following:
 * Update or define `.env.production` according to the template `.env`
 * `npm ci` to install the dependencies
 * `npm run backup-production` to backup the current database, if there is any
-* `npm run prisma-migrate-production` to run the database migration scripts
+* `npm run prisma-migrateproduction` to run the database migration scripts
 * `npm run generate-favicons` to generate the favicons
 * `npm run build` to generate the production build (this operation consumes some memory, make sure the machine has enough)
 * `npm run start-production` to start the production server
@@ -62,6 +62,6 @@ For a normal update, you may use the command `npm run update-production`. This c
 
 The source code is made available under the terms of the MIT license.
 
-Please do not reuse the name of our association ("Fátima Domíguez Yoga"), or reuse the photos in an inappropriate way.
+Please do not reuse the name of our association ("Yoga Sof"), or reuse the photos in an inappropriate way.
 
 If you are interested in having a similar website, contact us at contact[at]yoga-sof[dot]fr
