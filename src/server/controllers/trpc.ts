@@ -52,6 +52,9 @@ const createSessionMiddleware = middleware(async ({ next, ctx: { req } }) => {
 const createSessionProtectedMiddleware = (allowedRoles: UserRole[]) => {
   return middleware(async ({ next, ctx: { req } }) => {
     const session = await getSession({ req });
+
+    console.log('Session:', session); // Ajoutez ceci pour voir le contenu de la session
+
     if (session === null) {
       throw new trpc.TRPCError({ code: 'UNAUTHORIZED' });
     }

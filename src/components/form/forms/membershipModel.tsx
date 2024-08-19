@@ -25,7 +25,7 @@ const MembershipModelFormFields: React.FC<MembershipModelFormFieldsProps> = ({ u
       <SelectMembershipType name="id" disabled={!!update} />
     </Grid>
     <Grid item xs={12}>
-      <InputPrice name="price" label="Prix de l'adhésion en euros" />
+      <InputPrice name="price" label="Precio de la membresía" />
     </Grid>
   </Grid>
 );

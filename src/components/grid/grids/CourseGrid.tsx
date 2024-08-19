@@ -80,7 +80,7 @@ export const CourseGrid: React.FunctionComponent<CourseGridProps> = ({ future, c
     },
     {
       field: 'type',
-      headerName: 'Type de séance',
+      headerName: 'Tipo de sesión',
       minWidth: 150,
       flex: 1,
       valueFormatter: ({ value }: GridValueFormatterParams<CourseType>) => CourseTypeNames[value],

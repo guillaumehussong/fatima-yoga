@@ -30,7 +30,7 @@ export const FrontsiteCouponGrid: React.FunctionComponent<  FrontsiteCouponGridP
     },
     {
       field: 'courseType',
-      headerName: 'Type de séance',
+      headerName: 'Tipo de sesión',
       minWidth: 150,
       flex: 1,
       valueFormatter: ({ value }: GridValueFormatterParams<CourseType>) => CourseTypeNames[value],

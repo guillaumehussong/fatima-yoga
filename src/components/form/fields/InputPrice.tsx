@@ -25,7 +25,7 @@ export const InputPrice: React.FC<InputPriceProps> = ({ name, disabled, label, a
           </InputAdornment>
         ),
       }}
-      label={label ?? `Prix par séance en euros`}
+      label={label ?? `Precio por sesión`}
       disabled={disabled}
       fullWidth
     />

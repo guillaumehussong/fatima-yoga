@@ -48,7 +48,7 @@ import { useBackofficeWritePermission } from '../../../components/hooks/usePermi
             render: ({ dateStart, dateEnd }) => displayTimePeriod(dateStart, dateEnd),
           },
           {
-            title: 'Type de séance',
+            title: 'Tipo de sesión',
             name: 'type',
             sortable: true,
             render: ({ type }) => displayCourseType(type),

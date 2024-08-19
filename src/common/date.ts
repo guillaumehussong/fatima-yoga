@@ -1,9 +1,9 @@
 import { intervalToDuration } from 'date-fns';
 
-export const WeekdayNames = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+export const WeekdayNames = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
-const locale = 'fr-FR';
-const timeZone = 'Europe/Paris';
+const locale = 'es-MX';
+const timeZone = 'America/Mexico_City';
 
 const timeFormatterHHhMM = new Intl.DateTimeFormat(locale, {
   hour: 'numeric',
@@ -44,7 +44,7 @@ const timeFormatterHHhMMmSSs = new Intl.DateTimeFormat(locale, {
 export const formatDateDDsMMsYYYY = (date: Date | string): string => dateFormatter.format(new Date(date));
 
 export const formatDateDDsMMsYYYYsHHhMMmSSs = (date: Date | string, article: boolean = false): string => {
-  return (article ? 'Le ' : '') + [dateFormatter, timeFormatterHHhMMmSSs].map(formatter => formatter.format(new Date(date))).join(' à ');
+  return (article ? 'El ' : '') + [dateFormatter, timeFormatterHHhMMmSSs].map(formatter => formatter.format(new Date(date))).join(' a las ');
 };
 
 const dateFormatterLong = new Intl.DateTimeFormat(locale, {
@@ -64,25 +64,25 @@ export const formatTimestampRelative = (date: Date | string) => {
 
   let suffix: string;
   if (duration.years) {
-    suffix = `${duration.years} année${duration.years > 1 ? 's' : ''}`;
+    suffix = `${duration.years} año${duration.years > 1 ? 's' : ''}`;
   } else if (duration.months) {
-    suffix = `${duration.months} mois`;
+    suffix = `${duration.months} meses`;
   } else if (duration.days) {
     if (duration.days === 1) {
-      return 'Hier';
+      return 'Ayer';
     } else if (duration.days === 2) {
-      return 'Avant-hier';
+      return 'Anteayer';
     } else {
-      suffix = `${duration.days} jour${duration.days > 1 ? 's' : ''}`;
+      suffix = `${duration.days} día${duration.days > 1 ? 's' : ''}`;
     }
   } else if (duration.hours) {
-    suffix = `${duration.hours} heure${duration.hours > 1 ? 's' : ''}`;
+    suffix = `${duration.hours} hora${duration.hours > 1 ? 's' : ''}`;
   } else if (duration.minutes) {
-    suffix = `${duration.minutes} minute${duration.minutes > 1 ? 's' : ''}`;
+    suffix = `${duration.minutes} minuto${duration.minutes > 1 ? 's' : ''}`;
   } else {
-    suffix = `quelques instants`;
+    suffix = `unos instantes`;
   }
-  return `Il y a ${suffix}`;
+  return `Hace ${suffix}`;
 }
 
 export const formatDayRange = (start: Date | string, end: Date | string, capitalize = true): string => {

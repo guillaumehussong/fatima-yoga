@@ -72,7 +72,7 @@ export const FrontsiteCourseGrid: React.FunctionComponent<FrontsiteCourseGrid> =
     } satisfies GridColDef<CourseRegistrationItem>]),
     {
       field: 'type',
-      headerName: 'Type de séance',
+      headerName: 'Tipo de sesión',
       minWidth: 150,
       flex: 1,
       valueGetter: ({ row }: GridValueGetterParams<CourseRegistrationItem>) => !!row && CourseTypeNames[row.course.type],

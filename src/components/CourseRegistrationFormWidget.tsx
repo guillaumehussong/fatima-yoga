@@ -111,6 +111,11 @@ const CourseRegistrationFormStep1UserSelection: React.FC<CourseRegistrationFormS
   const { watch, setValue } = useFormContext<CourseRegistrationFieldValues>();
   const watchUserId = watch('userId');
   const { data: managedUsersData, isError: isManagedUsersError } = trpc.self.managedUsers.useQuery();
+  if (isManagedUsersError) {
+    //console.log('ErrorAlert triggered in CourseRegistrationFormStep1UserSelection');
+    //cconsoonsole.log(managedUsersData)
+    return <ErrorAlert />;
+  }
   const cardProps = (userIdValue: number | null) => ({
     selected: watchUserId === userIdValue,
     onSelect: () => setValue('userId', userIdValue),
@@ -153,6 +158,7 @@ const CourseRegistrationFormStep1UserSelection: React.FC<CourseRegistrationFormS
           <CircularProgress sx={{ my: 3 }} />
         </Box>
       )}
+      
     </Box>
   );
 }
@@ -179,7 +185,7 @@ const CourseSelectionGrid: React.FC<Pick<CourseRegistrationFormProps, 'courses' 
     },
     {
       field: 'type',
-      headerName: 'Type de séance',
+      headerName: 'Tipo de sesión',
       minWidth: 120,
       flex: 1,
       valueGetter: ({ value }: GridValueFormatterParams<CourseType>) => CourseTypeNames[value],
@@ -316,7 +322,7 @@ const CourseRegistrationFormStep3Confirmation: React.FC<Pick<CourseRegistrationF
                 <TableHead>
                   <TableRow>
                     <TableCell sx={{ textAlign: 'center', fontWeight: 'bold' }}>
-                      Type de séance
+                      Tipo de sesión
                     </TableCell>
                     <TableCell sx={{ textAlign: 'center', fontWeight: 'bold' }}>
                       Date et horaire
@@ -622,7 +628,10 @@ export const CourseRegistrationFormWidget: React.FC<CourseRegistrationFormWidget
   const { data: coursesData, isError: isCoursesError } = trpc.public.findAllFutureCourses.useQuery(undefined, {
     enabled: isAuthenticated,
   });
-
+  if (isCoursesError) {
+    //console.log('ErrorAlert triggered in CourseRegistrationFormWidget');
+    return <ErrorAlert />;
+  }
   return (
     <Card variant="outlined" sx={{ [theme.breakpoints.only('xs')]: { mx: -2, borderRadius: 0, borderLeft: 'none', borderRight: 'none' } }}>
       <CardContent>

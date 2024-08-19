@@ -24,7 +24,7 @@ const CouponModelFormFields = () => (
       <InputCourseQuantitySlots name="quantity" />
     </Grid>
     <Grid item xs={12}>
-      <InputPrice name="price" label="Prix de la carte en euros" />
+      <InputPrice name="price" label="Precio de la tarjeta" />
     </Grid>
   </Grid>
 );

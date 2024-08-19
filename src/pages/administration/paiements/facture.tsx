@@ -63,7 +63,7 @@ const InvoiceFormFields: React.FC<InvoiceFormFieldsProps> = ({ disabled }) => {
                     <TextFieldElement name={`items.${index}.subtitle`} label="Détails de l'article (facultatif)" disabled={disabled} fullWidth />
                   </Grid>
                   <Grid item xs={12} sm={4}>
-                    <InputPrice name={`items.${index}.price`} label="Prix de l'article" disabled={disabled} />
+                    <InputPrice name={`items.${index}.price`} label="l'article" disabled={disabled} />
                   </Grid>
                   <Grid item xs={12}>
                     <TextFieldElement name={`items.${index}.remark`} label="Conditions de l'article (facultatif)" disabled={disabled} fullWidth />

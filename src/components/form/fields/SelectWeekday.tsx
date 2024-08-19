@@ -13,7 +13,7 @@ export const SelectWeekday: React.FC<SelectWeekdayProps> = ({ name, disabled }) 
       name={name}
       values={WeekdayNames.map((_, weekdayIndex) => weekdayIndex)}
       labels={WeekdayNames}
-      label="Jour de la semaine"
+      label="Día de la semana"
       disabled={disabled}
     />
   );

@@ -130,7 +130,7 @@ export const CouponGrid: React.FunctionComponent<CouponGridProps> = ({ userId, c
     ...(userId === undefined ? [userColumn({ field: 'user', headerName: 'Propriétaire', flex: 1 })] : []),
     {
       field: 'courseType',
-      headerName: 'Type de séance',
+      headerName: 'Tipo de sesión',
       minWidth: 150,
       flex: 1,
       valueFormatter: ({ value }: GridValueFormatterParams<CourseType>) => CourseTypeNames[value],

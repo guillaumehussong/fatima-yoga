@@ -1,6 +1,7 @@
+/* eslint-disable import/extensions */
+import { TransactionType } from '@prisma/client';
 import { PdfTemplate } from '../../src/server/pdf';
 import { formatDateDDsMMsYYYY } from '../../src/common/date';
-import { TransactionType } from '@prisma/client';
 import { TransactionTypeNames } from '../../src/common/transaction';
 
 export interface FactureProps {
@@ -35,7 +36,7 @@ export interface FactureProps {
   insurance: string;
 }
 
-export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
+export const facturePdf: PdfTemplate<FactureProps> = p => ({
   content: [
     {
       columns: [
@@ -56,10 +57,10 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
           width: 'auto',
           alignment: 'right',
           columns: [[
-            { text: `Facture n° ${p.customId ? 'P' : ''}${p.id}`, bold: true, marginBottom: 5 },
-            `Date d'émission : ${formatDateDDsMMsYYYY(p.date)}`,
+            { text: `Facture n°${p.customId ? 'P' : ''}${p.id}`, bold: true, marginBottom: 5 },
+            `Date d'émission: ${formatDateDDsMMsYYYY(p.date)}`,
           ]],
-        }
+        },
       ],
       columnGap: 10,
     },
@@ -82,10 +83,10 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
                       p.transmitter.phone,
                       p.transmitter.email,
                     ].map(s => ({ text: s, margin: [0, 1] })),
-                    //fillColor: '#eee',
-                    //border: [false, false, false, false],
-                  }
-                ]
+                    // fillColor: '#eee',
+                    // border: [false, false, false, false],
+                  },
+                ],
               ],
             },
             marginTop: 5,
@@ -105,10 +106,10 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
                       p.receiver.fullname,
                       p.receiver.email,
                     ].map(s => ({ text: s, margin: [0, 1] })),
-                    //fillColor: '#eee',
-                    //border: [false, false, false, false],
-                  }
-                ]
+                    // fillColor: '#eee',
+                    // border: [false, false, false, false],
+                  },
+                ],
               ],
             },
             marginTop: 5,
@@ -129,7 +130,7 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
             { text: 'Validité', bold: true },
             { text: 'Prix', bold: true },
           ],
-          ...p.items.map((i) => [
+          ...p.items.map(i => [
             {
               stack: [
                 i.title,
@@ -148,7 +149,7 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
       table: {
         headerRows: 0,
         widths: ['*'],
-        body: [[{ text: `Sous-total HT : ${p.subtotal} €`, alignment: 'right' }]],
+        body: [[{ text: `Sous-total HT: ${p.subtotal} €`, alignment: 'right' }]],
       },
       margin: [0, 15, 0, 0],
     },
@@ -157,7 +158,7 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
       table: {
         headerRows: 0,
         widths: ['*'],
-        body: [[{ text: `Remise : ${p.subtotal - p.total} €`, alignment: 'right' }]],
+        body: [[{ text: `Remise: ${p.subtotal - p.total} €`, alignment: 'right' }]],
       },
     },
     {
@@ -167,7 +168,7 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
         headerRows: 1,
         widths: ['*'],
         body: [
-          [{ text: ['Total HT : ', { text: `${p.total} €`, bold: true }], alignment: 'right' }]
+          [{ text: ['Total HT: ', { text: `${p.total} €`, bold: true }], alignment: 'right' }],
         ],
       },
       margin: [0, 0, 0, 10],
@@ -184,9 +185,9 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
     {
       columns: [[
         ...(p.paid ? [{ text: [{ text: 'Facture acquittée', bold: true, decoration: 'underline' } as any, ' ', `(voir date d'émission)`], marginBottom: 5 }] : []),
-        ...(p.transactionType !== null ? [`Moyen de paiement : ${TransactionTypeNames[p.transactionType]}`] : []),
+        ...(p.transactionType !== null ? [`Moyen de paiement: ${TransactionTypeNames[p.transactionType]}`] : []),
       ]],
-      margin: [0, 15, 0, 0]
+      margin: [0, 15, 0, 0],
     },
     ...(p.details.length > 0 ? [{
       stack: p.details.map(d => ({ text: d, marginTop: 5 })),
@@ -216,7 +217,7 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
     annotating: false,
     fillingForms: false,
     contentAccessibility: true,
-    documentAssembly: true
+    documentAssembly: true,
   },
   footer: (currentPage, pageCount) => ({
     margin: [40, 0],
@@ -227,6 +228,6 @@ export const facturePdf: PdfTemplate<FactureProps> = (p) => ({
   }),
   pageSize: 'A4',
   defaultStyle: {
-    font: 'Helvetica'
+    font: 'Helvetica',
   },
 });

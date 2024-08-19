@@ -24,10 +24,10 @@ const CourseModelFormFields = () => (
       <SelectWeekday name="weekday" />
     </Grid>
     <Grid item xs={12} sm={6}>
-      <TimePickerElement name="timeStart" label="Heure de début" />
+      <TimePickerElement name="timeStart" label="Hora de inicio" />
     </Grid>
     <Grid item xs={12} sm={6}>
-      <TimePickerElement name="timeEnd" label="Heure de fin" />
+      <TimePickerElement name="timeEnd" label="Hora de fin" />
     </Grid>
     <Grid item xs={12}>
       <InputSlots name="slots" />
@@ -36,7 +36,7 @@ const CourseModelFormFields = () => (
       <InputPrice name="price" />
     </Grid>
     <Grid item xs={12}>
-      <SwitchElement name="bundle" label="Lot de séances" />
+      <SwitchElement name="bundle" label="Lote de sesiones" />
     </Grid>
   </Grid>
 );
@@ -62,10 +62,10 @@ export const CourseModelCreateForm = () => {
   return (
     <CreateFormContent
       {...commonFormProps}
-      title="Création d'un modèle de séance"
+      title="Creación de un modelo de sesión"
       schema={courseModelCreateSchema}
       mutationProcedure={trpc.courseModel.create}
-      successMessage={(data) => `Le modèle a été créé.`}
+      successMessage={(data) => `El modelo ha sido creado.`}
       invalidate={useProceduresToInvalidate()}
     >
       <CourseModelFormFields />
@@ -77,13 +77,13 @@ export const CourseModelUpdateForm = ({ queryData }: { queryData: ParsedUrlQuery
   return (
     <UpdateFormContent
       {...commonFormProps}
-      title="Modification d'un modèle de séance"
+      title="Modificación de un modelo de sesión"
       schema={courseModelUpdateSchema}
       mutationProcedure={trpc.courseModel.update}
       queryProcedure={trpc.courseModel.find}
       querySchema={courseModelGetTransformSchema}
       queryParams={queryData}
-      successMessage={(data) => `Le modèle a été mis à jour.`}
+      successMessage={(data) => `El modelo ha sido actualizado.`}
       invalidate={useProceduresToInvalidate()}
     >
       <CourseModelFormFields />

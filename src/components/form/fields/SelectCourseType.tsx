@@ -15,7 +15,7 @@ export const SelectCourseType: React.FC<SelectCourseTypeProps> = ({ name, disabl
       name={name}
       values={Object.keys(CourseType) as CourseType[]}
       labels={CourseTypeNames}
-      label="Type de séance"
+      label="Tipo de sesión"
       disabled={disabled}
     />
   );
