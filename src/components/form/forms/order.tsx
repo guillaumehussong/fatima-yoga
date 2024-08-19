@@ -578,7 +578,7 @@ const OrderFormFields: React.FC = () => {
                         <SelectCoupon name={`billing.existingCoupons.${index}.coupon`} userId={watchUser.id} notEmpty label="Carte existante" noMatchId />
                       </Grid>
                       <Grid item xs={12} md={6}>
-                        <SelectDependentCourseRegistration name={`billing.existingCoupons.${index}.courseRegistrationIds`} fromName="purchases.courseRegistrations" multiple label="Séances" />
+                        <SelectDependentCourseRegistration name={`billing.existingCoupons.${index}.courseRegistrationIds`} fromName="purchases.courseRegistrations" multiple label="Sesiones" />
                       </Grid>
                     </Grid>
                   </OptionalField>
@@ -592,7 +592,7 @@ const OrderFormFields: React.FC = () => {
                         <SelectDependentCouponModel name={`billing.newCoupons.${index}.newCouponIndex`} fromName="purchases.newCoupons" label="Nouvelle carte" />
                       </Grid>
                       <Grid item xs={12} md={6}>
-                        <SelectDependentCourseRegistration name={`billing.newCoupons.${index}.courseRegistrationIds`} fromName="purchases.courseRegistrations" multiple label="Séances" />
+                        <SelectDependentCourseRegistration name={`billing.newCoupons.${index}.courseRegistrationIds`} fromName="purchases.courseRegistrations" multiple label="Sesiones" />
                       </Grid>
                     </Grid>
                   </OptionalField>
@@ -715,12 +715,12 @@ const OrderFormFields: React.FC = () => {
               <Alert severity="warning">
                 {orderPreview.computedAmount > 0 ? (
                   <>
-                    Le montant des articles est de <strong>{orderPreview.computedAmount} €</strong> tandis que le paiement de l'utilisateur revient à <strong>{watchPayment?.amount ?? 0} €</strong>.
+                    Le montant des articles est de <strong>{orderPreview.computedAmount} $</strong> tandis que le paiement de l'utilisateur revient à <strong>{watchPayment?.amount ?? 0} $</strong>.
                     Pour indiquer que vous avez reçu de l'argent de la part de l'utilisateur, cliquez sur "créer un nouveau paiement".
                   </>
                 ) : (
                   <>
-                    Le montant des articles est de <strong>0 €</strong>, aucun paiement n'est attendu.
+                    Le montant des articles est de <strong>0 $</strong>, aucun paiement n'est attendu.
                     Pour supprimer le paiement, cliquez sur le bouton de suppression à droite.
                   </>
                 )}
@@ -731,7 +731,7 @@ const OrderFormFields: React.FC = () => {
               <Alert severity="info">
                 {orderPreview.computedAmount > 0 || (watchPayment?.overrideAmount && (watchPayment?.amount ?? 0) > 0) ? (
                   <>
-                    En cliquant sur "créer" vous confirmez avoir reçu un paiement de <strong>{watchPayment?.overrideAmount ? (watchPayment?.amount ?? 0) : orderPreview.computedAmount} €</strong> de la part de <strong>{displayUserName(watchUser!)}</strong>.
+                    En cliquant sur "créer" vous confirmez avoir reçu un paiement de <strong>{watchPayment?.overrideAmount ? (watchPayment?.amount ?? 0) : orderPreview.computedAmount} $</strong> de la part de <strong>{displayUserName(watchUser!)}</strong>.
                   </>
                 ) : (
                   <>

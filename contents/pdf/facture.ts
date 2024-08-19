@@ -139,7 +139,7 @@ export const facturePdf: PdfTemplate<FactureProps> = p => ({
               margin: [0, 5],
             },
             { text: i.remark, margin: [0, 5] },
-            { text: `${i.price} €`, alignment: 'right', margin: [0, 5] },
+            { text: `${i.price} $`, alignment: 'right', margin: [0, 5] },
           ]),
         ],
       },
@@ -149,7 +149,7 @@ export const facturePdf: PdfTemplate<FactureProps> = p => ({
       table: {
         headerRows: 0,
         widths: ['*'],
-        body: [[{ text: `Sous-total HT: ${p.subtotal} €`, alignment: 'right' }]],
+        body: [[{ text: `Sous-total HT: ${p.subtotal} $`, alignment: 'right' }]],
       },
       margin: [0, 15, 0, 0],
     },
@@ -158,7 +158,7 @@ export const facturePdf: PdfTemplate<FactureProps> = p => ({
       table: {
         headerRows: 0,
         widths: ['*'],
-        body: [[{ text: `Remise: ${p.subtotal - p.total} €`, alignment: 'right' }]],
+        body: [[{ text: `Remise: ${p.subtotal - p.total} $`, alignment: 'right' }]],
       },
     },
     {
@@ -168,7 +168,7 @@ export const facturePdf: PdfTemplate<FactureProps> = p => ({
         headerRows: 1,
         widths: ['*'],
         body: [
-          [{ text: ['Total HT: ', { text: `${p.total} €`, bold: true }], alignment: 'right' }],
+          [{ text: ['Total HT: ', { text: `${p.total} $`, bold: true }], alignment: 'right' }],
         ],
       },
       margin: [0, 0, 0, 10],

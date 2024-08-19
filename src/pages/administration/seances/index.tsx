@@ -92,45 +92,45 @@ const AdminHomeContent: React.FC = () => {
 
   return (
     <BackofficeContent
-      title="Séances"
+      title="Sesiones"
       icon={<DateRange />}
       quickActions={hasWritePermission ? [
-        { icon: <DateRange />, name: 'Planification de séances', url: '/administration/seances/planning/creation' },
-        { icon: <Event />, name: 'Nouveau modèle de séance', url: '/administration/seances/modeles/creation' },
+        { icon: <DateRange />, name: 'Planificación de sesiones', url: '/administration/seances/planning/creation' },
+        { icon: <Event />, name: 'Nuevo modelo de sesión', url: '/administration/seances/modeles/creation' },
       ] : []}
     >
       <Typography variant="h6" component="div">
-        Modèles de séances
+        Modelos de sesiones
       </Typography>
       <Typography paragraph>
-        Il s'agit des horaires hebdomadaires de déroulement des séances. Ces modèles servent ensuite à efficacement planifier un lot de séances (ci-dessous). Il reste
-        possible de planifier des séances à d'autres dates et horaires que celles indiquées par les modèles.
+        Estos son los horarios semanales para la realización de las sesiones. Estos modelos se utilizan para planificar eficientemente un lote de sesiones (a continuación). 
+        Es posible planificar sesiones en otras fechas y horarios distintos a los indicados por los modelos.
       </Typography>
       <CourseModelCards />
 
       <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-        Séances à venir
+        Próximas sesiones
       </Typography>
       <Typography paragraph>
-        Les utilisateurs ne peuvent s'inscrire qu'à des séances qui ont été planifiées.
-        Ce tableau contient la liste des séances passées, présentes et futures. Le bouton permet de planifier de
-        nouvelles séances. Il n'est pas possible de supprimer de séances, en revanche il est possible d'en annuler.
+        Los usuarios solo pueden inscribirse en sesiones que han sido planificadas.
+        Esta tabla contiene la lista de sesiones pasadas, presentes y futuras. El botón permite planificar
+        nuevas sesiones. No es posible eliminar sesiones, sin embargo, es posible cancelarlas.
       </Typography>
       <CourseGrid future canceled={false} />
 
       <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-        Séances passées
+        Sesiones pasadas
       </Typography>
       <Typography paragraph>
-        Les séances passées.
+        Las sesiones pasadas.
       </Typography>
       <CourseGrid future={false} canceled={false} />
 
       <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-        Séances annulées
+        Sesiones canceladas
       </Typography>
       <Typography paragraph>
-        Les séances ayant été annulées.
+        Las sesiones que han sido canceladas.
       </Typography>
       <CourseGrid future={null} canceled />
     </BackofficeContent>

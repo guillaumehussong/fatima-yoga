@@ -68,7 +68,7 @@ const AggregatedTotalPayments: React.FC = () => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis unit=" €" />
+          <YAxis unit=" $" />
           <ReferenceLine y={0} stroke="#000" />
           {!disabled[0] && <Bar dataKey="organizationIncomes" stackId="value" fill={legend[0].color} />}
           {!disabled[0] && <Bar dataKey="organizationExpenses" stackId="value" fill={legend[0].color} />}

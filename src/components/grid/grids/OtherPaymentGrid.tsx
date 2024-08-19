@@ -72,7 +72,7 @@ export const OtherPaymentGrid: React.FunctionComponent = () => {
       renderCell: ({ value }: GridRenderCellParams<OtherPaymentItem, number>) => {
         if (value === undefined) return;
         const valueAbs = Math.abs(value);
-        const formatted = `${Math.round(valueAbs) === valueAbs ? valueAbs : valueAbs.toFixed(2).replace('.', ',')} €`;
+        const formatted = `${Math.round(valueAbs) === valueAbs ? valueAbs : valueAbs.toFixed(2).replace('.', ',')} $`;
         const isPositive = value >= 0;
         const iconColor = isPositive ? 'success' : 'error';
         const textColor = isPositive ? 'success.main' : 'error.main';

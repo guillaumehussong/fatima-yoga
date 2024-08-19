@@ -134,7 +134,7 @@ export const MembershipGrid: React.FunctionComponent<MembershipGridProps> = ({ u
       headerName: `Prix d'achat`,
       flex: 1,
       minWidth: 100,
-      valueFormatter: ({ value }: GridValueFormatterParams<number>) => value > 0 ? `${value} €` : 'Gratuit',
+      valueFormatter: ({ value }: GridValueFormatterParams<number>) => value > 0 ? `${value} $` : 'Gratuit',
     },
     relativeTimestamp({
       field: 'createdAt',

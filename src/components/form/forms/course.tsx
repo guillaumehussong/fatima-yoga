@@ -64,19 +64,19 @@ const RangeSelectionDialog: React.FC<RangeSelectionDialogProps> = ({ open, onClo
   const today = useMemo(() => withNormalizedTime(new Date()), []);
   const schema = useMemo(() => {
     return z.strictObject({
-      dateStart: z.date().min(today, `La date ne peut pas être dans le passé`),
+      dateStart: z.date().min(today, `La fecha no puede estar en el pasado`),
       dateEnd: z.date(),
     }).superRefine(({ dateStart, dateEnd }, ctx) => {
       if (!(dateStart <= dateEnd)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           path: ['dateStart'],
-          message: `La date de début ne peut pas apparaître après la date de fin`,
+          message: `La fecha de inicio no puede ser posterior a la fecha de fin`,
         });
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           path: ['dateEnd'],
-          message: `La date de fin ne peut pas apparaître avant la date de début`,
+          message: `La fecha de fin no puede ser anterior a la fecha de inicio`,
         });
       }
     });
@@ -88,23 +88,23 @@ const RangeSelectionDialog: React.FC<RangeSelectionDialogProps> = ({ open, onClo
     >
       <FormContainer onSuccess={onSelect} resolver={zodResolver(schema)} defaultValues={{}}>
         <DialogTitle>
-          Sélection de dates
+          Selección de fechas
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Choisissez un intervalle de dates à ajouter à la liste.
+            Elige un rango de fechas para agregar a la lista.
           </DialogContentText>
           <Grid container spacing={2} sx={{ mt: 1 }}>
             <Grid item xs={6}>
-              <DatePickerElement name="dateStart" minDate={today} label="Date de début" />
+              <DatePickerElement name="dateStart" minDate={today} label="Fecha de inicio" />
             </Grid>
             <Grid item xs={6}>
-              <DatePickerElement name="dateEnd" minDate={today} label="Date de fin" />
+              <DatePickerElement name="dateEnd" minDate={today} label="Fecha de fin" />
             </Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button color="inherit" onClick={onClose} sx={{ color: grey[600] }}>Annuler</Button>
+          <Button color="inherit" onClick={onClose} sx={{ color: grey[600] }}>Cancelar</Button>
           <AddCourseSubmitButton onSubmit={onSelect} />
         </DialogActions>
       </FormContainer>
@@ -153,7 +153,7 @@ const DatesSelectionList = () => {
       <CardContent>
         <Stack direction="row" alignItems="flex-start" justifyContent="space-between">
           <Typography variant="h6" component="div">
-            Séances planifiées
+            Sesiones planifiées
           </Typography>
           <RangeSelectionDialog open={open} onClose={() => setOpen(false)} onSelect={handleSelect} />
           <Button endIcon={<AddBox />} onClick={() => setOpen(true)} disabled={watchWeekday == null}>
@@ -279,10 +279,10 @@ export const CourseCreateForm = () => {
   return (
     <CreateFormContent
       {...commonFormProps}
-      title="Planification de séances"
+      title="Planificación de sesiones"
       schema={courseCreateManySchema}
       mutationProcedure={trpc.course.createMany}
-      successMessage={() => 'Les séances ont été planifiées'} // TODO show count
+      successMessage={() => 'Las sesiones han sido planificadas'} // TODO show count
       defaultValues={courseFormDefaultValues}
       urlSuccessFor={() => `/administration/seances`}
       invalidate={useProceduresToInvalidate()}
@@ -296,13 +296,13 @@ export const CourseUpdateForm = ({ queryData }: { queryData: ParsedUrlQuery }) =
   return (
     <UpdateFormContent
       {...commonFormProps}
-      title="Modification d'une séance planifiée"
+      title="Modificación de una sesión planificada"
       schema={courseUpdateSchema}
       mutationProcedure={trpc.course.update}
       queryProcedure={trpc.course.findUpdate}
       querySchema={courseModelGetTransformSchema}
       queryParams={queryData}
-      successMessage={() => 'Les caractéristiques de la séance ont été mises à jour'}
+      successMessage={() => 'Las características de la sesión han sido actualizadas'}
       defaultValues={{}}
       urlSuccessFor={({ id }) => `/administration/seances/planning/${id}`}
       invalidate={useProceduresToInvalidate()}
@@ -310,8 +310,8 @@ export const CourseUpdateForm = ({ queryData }: { queryData: ParsedUrlQuery }) =
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Alert severity="warning">
-            Attention, vous êtes sur le point de modifier les caractéristiques d'une séance déjà planifiée.
-            Si vous changez le prix, les utilisateurs déjà inscrits et n'ayant pas encore payé devront s'acquitter du nouveau montant.
+            Atención, estás a punto de modificar las características de una sesión ya planificada.
+            Si cambias el precio, los usuarios ya inscritos y que aún no han pagado deberán abonar el nuevo monto.
           </Alert>
         </Grid>
         <Grid item xs={12}>
@@ -332,18 +332,18 @@ export const CourseUpdateNotesForm = ({ queryData }: { queryData: ParsedUrlQuery
   return (
     <UpdateFormContent
       {...commonFormProps}
-      title="Modification des notes d'une séance"
+      title="Modificación de las notas de una sesión"
       schema={courseUpdateNotesSchema}
       mutationProcedure={trpc.course.updateNotes}
       queryProcedure={trpc.course.findUpdateNotes}
       querySchema={courseFindTransformSchema}
       queryParams={queryData}
-      successMessage={() => 'Les notes de la séance ont été mises à jour'}
+      successMessage={() => 'Las notas de la sesión han sido actualizadas'}
       defaultValues={{ notes: null }}
       urlSuccessFor={({ id }) => `/administration/seances/planning/${id}`}
       invalidate={useProceduresToInvalidate()}
     >
-      <TextFieldElement name="notes" label="Notes (visibles seulement par vous)" multiline rows={4} fullWidth />
+      <TextFieldElement name="notes" label="Notas (visibles solo para ti)" multiline rows={4} fullWidth />
     </UpdateFormContent>
   );
 };

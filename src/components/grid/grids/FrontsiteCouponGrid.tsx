@@ -37,7 +37,7 @@ export const FrontsiteCouponGrid: React.FunctionComponent<  FrontsiteCouponGridP
     },
     {
       field: 'quantity',
-      headerName: 'Séances restantes',
+      headerName: 'Sesiones restantes',
       flex: 1,
       minWidth: 150,
       valueGetter: ({ row }: GridValueGetterParams<CouponItem>): [number, number] => [row.quantity, row.remaining],

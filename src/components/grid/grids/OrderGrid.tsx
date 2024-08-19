@@ -60,7 +60,7 @@ export const OrderGrid: React.FunctionComponent<OrderGridProps> = ({ userId }) =
       field: 'payment.amount',
       headerName: 'Payé',
       valueGetter: ({ row: { payment } }: GridValueGetterParams<OrderItem>): number | null => payment?.amount ?? null,
-      valueFormatter: ({ value }: GridValueFormatterParams<number | null>) => `${value ?? 0} €`,
+      valueFormatter: ({ value }: GridValueFormatterParams<number | null>) => `${value ?? 0} $`,
       minWidth: 100,
       flex: 1,
     },

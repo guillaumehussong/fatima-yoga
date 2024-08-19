@@ -13,32 +13,32 @@ export default function AdminPayments() {
   const hasWritePermission = useBackofficeWritePermission();
   return (
     <BackofficeContent
-      title="Paiements"
+      title="Pagos"
       icon={<Payments />}
       quickActions={hasWritePermission ? [
-        { icon: <ShoppingCart />, name: 'Enregistrer un paiement', url: '/administration/paiements/creation' },
-        { icon: <PictureAsPdf />, name: 'Générer une facture libre', url: '/administration/paiements/facture' },
+        { icon: <ShoppingCart />, name: 'Registrar un pago', url: '/administration/paiements/creation' },
+        { icon: <PictureAsPdf />, name: 'Generar una factura libre', url: '/administration/paiements/facture' },
       ] : []}
     >
       <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-        Derniers paiements enregistrés
+        Últimos pagos registrados
       </Typography>
       <Typography paragraph>
-        Les paiements associent une transaction (espèces ou HelloAsso) à des articles (séances, cotisations et cartes).
+        Los pagos asocian una transacción (efectivo o HelloAsso) con artículos (sesiones, membresías y tarjetas).
       </Typography>
       <OrderGrid />
       <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-        Articles impayés
+        Artículos impagados
       </Typography>
       <Typography paragraph>
-        Les articles n'ayant pas encore de paiement associé sont affichés ci-dessous.
+        Los artículos que aún no tienen un pago asociado se muestran a continuación.
       </Typography>
       <UnpaidItemsGrid />
       <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-        Inscripciones à rattraper
+        Inscripciones a recuperar
       </Typography>
       <Typography paragraph>
-        Si des utilisateurs ont payé pour des inscripciones à des séances qui ont par la suite été annulées, ces dernières peuvent être utilisées en tant que remplacement pour une autre inscripcion.
+        Si los usuarios han pagado por inscripciones a sesiones que posteriormente fueron canceladas, estas últimas pueden ser utilizadas como reemplazo para otra inscripción.
       </Typography>
       <CourseRegistrationForReplacementGrid />
     </BackofficeContent>

@@ -58,10 +58,10 @@ export const displayUserEmail = ({ customEmail, email }: Pick<User, 'customEmail
   customEmail || email;
 
 export const displayTransactionWithUserName = ({ amount, user }: Pick<Transaction, 'amount'> & { user: Parameters<typeof displayUserName>[0] }) =>
-  `${amount} € de l'utilisateur ${displayUserName(user)}`;
+  `${amount} $ de l'utilisateur ${displayUserName(user)}`;
 
 export const displayTransactionWithDate = ({ amount, date, comment }: Pick<Transaction, 'amount' | 'date' | 'comment'>) =>
-  `${amount} € du ${formatDateDDsmmYYYY(date)} (${comment})`;
+  `${amount} $ du ${formatDateDDsmmYYYY(date)} (${comment})`;
 
 export const displayCouponModelName = ({ courseType, quantity }: Pick<CouponModel, 'courseType' | 'quantity'>) => `Carte de ${quantity} séance${quantity > 1 ? 's' : ''} ${CourseTypeNames[courseType].toLowerCase()}`;
 
@@ -70,7 +70,7 @@ export const displayCouponName = ({ courseType, quantity }: Pick<Coupon, 'course
 export const displayCouponNameWithQuantity = ({ courseType, quantity, orderCourseRegistrations }: Pick<Coupon, 'courseType' | 'quantity'> & { orderCourseRegistrations: {}[] }, capitalize = true) =>
   `${capitalize ? 'Carte' : 'carte'} de ${quantity - orderCourseRegistrations.length} / ${quantity} séance${quantity > 1 ? 's' : ''} ${CourseTypeNames[courseType].toLowerCase()}`;
 
-export const displayMembershipModelName = ({ id: type, price }: Pick<MembershipModel, 'id' | 'price'>) => `Adhésion ${MembershipTypeNames[type].toLowerCase()} (${price} €)`;
+export const displayMembershipModelName = ({ id: type, price }: Pick<MembershipModel, 'id' | 'price'>) => `Adhésion ${MembershipTypeNames[type].toLowerCase()} (${price} $)`;
 
 export const displayMembershipModelNameWithoutPrice = ({ id: type }: Pick<MembershipModel, 'id'>) => `Adhésion ${MembershipTypeNames[type].toLowerCase()}`;
 
@@ -80,4 +80,4 @@ export const displayMembershipName = ({ type, dateStart, dateEnd }: Pick<Members
 export const displayOtherPaymentCategoryName = ({ name }: Pick<OtherPaymentCategory, 'name'>) => name;
 
 export const displayOtherPaymentName = ({ amountCents, date }: Pick<OtherPayment, 'amountCents' | 'date'>, capitalize = true) =>
-  `${capitalize ? 'Transaction' : 'transaction'} de ${(amountCents / 100).toFixed(2).replace('.', ',')} € du ${formatDateDDsmmYYYY(date)}`;
+  `${capitalize ? 'Transaction' : 'transaction'} de ${(amountCents / 100).toFixed(2).replace('.', ',')} $ du ${formatDateDDsmmYYYY(date)}`;

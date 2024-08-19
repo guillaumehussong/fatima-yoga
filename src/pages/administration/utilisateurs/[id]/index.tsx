@@ -60,7 +60,7 @@ interface AdminUserContentProps {
 
 const AdminUserContent: React.FunctionComponent<AdminUserContentProps> = ({ user }: AdminUserContentProps) => {
   const hasWritePermission = useBackofficeWritePermission();
-  const title = `Utilisateur ${displayUserName(user)}`;
+  const title = `Usuario ${displayUserName(user)}`;
   const statistics = getUserStatistics(user);
   const trpcClient = trpc.useContext();
   const router = useRouter();
@@ -70,10 +70,10 @@ const AdminUserContent: React.FunctionComponent<AdminUserContentProps> = ({ user
       await Promise.all((
         [trpcClient.user.find, trpcClient.user.findAll]
       ).map(procedure => procedure.invalidate()));
-      enqueueSnackbar(disabled ? `L'utilisateur a été désactivé` : `L'utilisateur a été réactivé`, { variant: 'success' });
+      enqueueSnackbar(disabled ? `El usuario ha sido desactivado` : `El usuario ha sido reactivado`, { variant: 'success' });
     },
     onError: (_, { disabled }) => {
-      enqueueSnackbar(`Une erreur est survenue lors de la ${disabled ? 'désactivation' : 'réactivation'} de l'utilisateur`, { variant: 'error' });
+      enqueueSnackbar(`Ocurrió un error durante la ${disabled ? 'desactivación' : 'reactivación'} del usuario`, { variant: 'error' });
     },
   });
   const [isDisableDialogOpen, setDisableDialogOpen] = useState(false);
@@ -82,11 +82,11 @@ const AdminUserContent: React.FunctionComponent<AdminUserContentProps> = ({ user
       await Promise.all((
         [trpcClient.user.find, trpcClient.user.findAll]
       ).map(procedure => procedure.invalidate()));
-      enqueueSnackbar(`L'utilisateur a été supprimé`, { variant: 'success' });
+      enqueueSnackbar(`El usuario ha sido eliminado`, { variant: 'success' });
       return router.push('/administration/utilisateurs');
     },
     onError: () => {
-      enqueueSnackbar(`Une erreur est survenue lors de la suppression de l'utilisateur ; il est possible que l'utilisateur ne soit pas suppressible`, { variant: 'error' });
+      enqueueSnackbar(`Ocurrió un error durante la eliminación del usuario; es posible que el usuario no se pueda eliminar`, { variant: 'error' });
     },
   });
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -99,26 +99,26 @@ const AdminUserContent: React.FunctionComponent<AdminUserContentProps> = ({ user
             {title}
           </span>
           {user.disabled && (
-            <Chip label="Désactivé" color="error" variant="outlined" />
+            <Chip label="Desactivado" color="error" variant="outlined" />
           )}
         </Stack>
       }
       icon={<Person />}
       actions={hasWritePermission ? [
-        { name: 'Modifier', icon: <Edit />, url: { pathname: '/administration/utilisateurs/[id]/edition', query: { id: user.id, redirect: router.asPath } } },
-        { name: user.disabled ? 'Réactiver le compte' : 'Désactiver le compte', icon: <Block />, onClick: () => setDisableDialogOpen(true), disabled: isDisablingLoading },
-        { name: 'Supprimer', icon: <Delete />, onClick: () => setDeleteDialogOpen(true), disabled: isDeleteLoading },
+        { name: 'Modificar', icon: <Edit />, url: { pathname: '/administration/utilisateurs/[id]/edition', query: { id: user.id, redirect: router.asPath } } },
+        { name: user.disabled ? 'Reactivar la cuenta' : 'Desactivar la cuenta', icon: <Block />, onClick: () => setDisableDialogOpen(true), disabled: isDisablingLoading },
+        { name: 'Eliminar', icon: <Delete />, onClick: () => setDeleteDialogOpen(true), disabled: isDeleteLoading },
       ] : []}
       quickActions={hasWritePermission ? [
-        { name: 'Inscrire à des séances', icon: <Assignment />, url: { pathname: `/administration/inscripciones/creation`, query: { userId: user.id, redirect: router.asPath } } },
-        { name: 'Créer un paiement', icon: <ShoppingCart />, url: { pathname: `/administration/paiements/creation`, query: { userId: user.id, redirect: router.asPath } } },
+        { name: 'Inscribir a sesiones', icon: <Assignment />, url: { pathname: `/administration/inscripciones/creation`, query: { userId: user.id, redirect: router.asPath } } },
+        { name: 'Crear un pago', icon: <ShoppingCart />, url: { pathname: `/administration/paiements/creation`, query: { userId: user.id, redirect: router.asPath } } },
       ] : []}
     >
       <DisableUserDialog user={user} open={isDisableDialogOpen && !user.disabled} setOpen={setDisableDialogOpen} onConfirm={() => mutateDisable({ id: user.id, disabled: true })} />
       <RenableUserDialog user={user} open={isDisableDialogOpen && user.disabled} setOpen={setDisableDialogOpen} onConfirm={() => mutateDisable({ id: user.id, disabled: false })} />
       <DeleteUserDialog user={user} open={isDeleteDialogOpen} setOpen={setDeleteDialogOpen} onConfirm={() => mutateDelete({ id: user.id })} />
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Informations sur l'utilisateur
+        Información del usuario
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} lg={6}>
@@ -128,30 +128,30 @@ const AdminUserContent: React.FunctionComponent<AdminUserContentProps> = ({ user
           <Card variant="outlined">
             <CardContent sx={{ pb: 0 }}>
               <Typography variant="h6" component="div">
-                Statistiques
+                Estadísticas
               </Typography>
               <Grid container spacing={2} justifyContent="center">
                 <GridItemStatistic
                   value={statistics.coursesPast}
-                  title="Séances passées"
-                  label="Nombre total de séances non annulées passées pour lesquelles l'utilisateur était inscrit. Les absences sont comptabilisées. Une séance est considérée comme passée dès lors que la date de fin est atteinte."
+                  title="Sesiones pasadas"
+                  label="Número total de sesiones no canceladas pasadas para las que el usuario estaba inscrito. Las ausencias se contabilizan. Una sesión se considera pasada una vez que se alcanza la fecha de finalización."
                 />
                 <GridItemStatistic
                   value={statistics.coursesFuture}
-                  title="Séances à venir"
-                  label="Nombre total de séances non annulées à venir pour lesquelles l'utilisateur est inscrit. Une séance est considérée comme étant à venir tant que la date fin n'a pas été atteinte."
+                  title="Sesiones futuras"
+                  label="Número total de sesiones no canceladas futuras para las que el usuario está inscrito. Una sesión se considera futura siempre que no se haya alcanzado la fecha de finalización."
                   good
                 />
                 <GridItemStatistic
                   value={statistics.courseUnregistrations}
-                  title="Séances désinscrites"
-                  label="Nombre total de séances pour lesquelles l'utilisateur s'était inscrit au moins une fois, mais s'est finalement désinscrit. Les séances annulées sont exclues."
+                  title="Sesiones canceladas"
+                  label="Número total de sesiones en las que el usuario se había inscrito al menos una vez, pero finalmente se dio de baja. Las sesiones canceladas están excluidas."
                   good={false}
                 />
                 <GridItemStatistic
                   value={statistics.courseAbsences}
-                  title="Absences"
-                  label="Nombre total d'absences. Une désinscripcion n'est pas comptabilisée comme une absence. Les séances annulées sont également exclues."
+                  title="Ausencias"
+                  label="Número total de ausencias. Una cancelación de inscripción no se contabiliza como una ausencia. Las sesiones canceladas también están excluidas."
                   good={false}
                 />
               </Grid>
@@ -160,27 +160,27 @@ const AdminUserContent: React.FunctionComponent<AdminUserContentProps> = ({ user
         </Grid>
       </Grid>
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Participations
+        Participaciones
       </Typography>
       <CourseRegistrationGrid userId={user.id} />
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Historique d'inscripciones
+        Historial de inscripciones
       </Typography>
       <CourseRegistrationEventGrid userId={user.id} />
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Absences
+        Ausencias
       </Typography>
       <CourseRegistrationGrid userId={user.id} attended={false} />
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Comptabilité
+        Contabilidad
       </Typography>
       <Stack direction="column" gap={2}>
         <OrderGrid userId={user.id} />
-        <MembershipGrid collapsible collapsedSummary="Adhésions de l'utilisateur" userId={user.id} />
-        <CouponGrid collapsible collapsedSummary="Cartes possédées par cet utilisateur" userId={user.id} />
-        <UnpaidItemsGrid collapsible collapsedSummary="Articles impayés" userId={user.id} />
+        <MembershipGrid collapsible collapsedSummary="Membresías del usuario" userId={user.id} />
+        <CouponGrid collapsible collapsedSummary="Tarjetas poseídas por este usuario" userId={user.id} />
+        <UnpaidItemsGrid collapsible collapsedSummary="Artículos impagos" userId={user.id} />
       </Stack>
-      </BackofficeContent>
+    </BackofficeContent>
   );
 };
 

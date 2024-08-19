@@ -27,7 +27,7 @@ export default function AdminAdmins() {
         Autres listes
       </Typography>
       <Stack direction="column" spacing={2}>
-        <UserGrid disabledUsers={true} collapsible collapsedSummary="Utilisateurs désactivés" />
+        <UserGrid disabledUsers={true} collapsible collapsedSummary="Usuarios desactivados" />
         <EmailMessageGrid sent={false} collapsible collapsedSummary="Emails non envoyés" />
       </Stack>
     </BackofficeContent>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { TextFieldElement, useController } from 'react-hook-form-mui';
 import { InputAdornment } from '@mui/material';
-import { Euro } from '@mui/icons-material';
+import { AttachMoney } from '@mui/icons-material';
+import SvgIcon from '@mui/material/SvgIcon';
 
 interface InputPriceProps {
   name: string;
@@ -21,7 +22,7 @@ export const InputPrice: React.FC<InputPriceProps> = ({ name, disabled, label, a
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <Euro />
+            <SvgIcon component={AttachMoney} />
           </InputAdornment>
         ),
       }}

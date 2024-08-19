@@ -123,41 +123,41 @@ const CourseRegistrationFormStep1UserSelection: React.FC<CourseRegistrationFormS
   const itemsProps = { item: true, xs: 12, sm: 6, md: 4 };
   return (
     <Box>
-      <Box sx={{ mb: 2 }}>
-        Sélectionnez la personne bénéficiaire des séances de Yoga ; il peut s'agit de vous-même ou bien d'un proche :
-      </Box>
-      {managedUsersData ? (
-        <Grid container spacing={2} alignItems="stretch">
-          <Grid {...itemsProps}>
-            <UserCard
-              suptitle="Vous-même"
-              title={session.displayName ?? session.displayEmail ?? '?'}
-              {...cardProps(session.userId)}
-            />
-          </Grid>
-          {managedUsersData.managedUsers.map(user => (
-            <Grid key={user.id} {...itemsProps}>
-              <UserCard
-                suptitle="Un proche déjà enregistré"
-                title={user.name}
-                {...cardProps(user.id)}
-              />
-            </Grid>
-          ))}
-          <Grid {...itemsProps}>
-            <UserCard
-              suptitle="Un nouveau proche"
-              {...cardProps(null)}
-            />
-          </Grid>
+    <Box sx={{ mb: 2 }}>
+      Selecciona a la persona beneficiaria de las sesiones de Yoga; puede ser tú mismo o un familiar:
+    </Box>
+    {managedUsersData ? (
+      <Grid container spacing={2} alignItems="stretch">
+        <Grid {...itemsProps}>
+          <UserCard
+            suptitle="Tú mismo"
+            title={session.displayName ?? session.displayEmail ?? '?'}
+            {...cardProps(session.userId)}
+          />
         </Grid>
-      ) : isManagedUsersError ? (
-        <ErrorAlert />
-      ) : (
-        <Box textAlign="center">
-          <CircularProgress sx={{ my: 3 }} />
-        </Box>
-      )}
+        {managedUsersData.managedUsers.map(user => (
+          <Grid key={user.id} {...itemsProps}>
+            <UserCard
+              suptitle="Un familiar ya registrado"
+              title={user.name}
+              {...cardProps(user.id)}
+            />
+          </Grid>
+        ))}
+        <Grid {...itemsProps}>
+          <UserCard
+            suptitle="Un nuevo familiar"
+            {...cardProps(null)}
+          />
+        </Grid>
+      </Grid>
+    ) : isManagedUsersError ? (
+      <ErrorAlert />
+    ) : (
+      <Box textAlign="center">
+        <CircularProgress sx={{ my: 3 }} />
+      </Box>
+    )}
       
     </Box>
   );
@@ -314,7 +314,7 @@ const CourseRegistrationFormStep3Confirmation: React.FC<Pick<CourseRegistrationF
       <Grid container spacing={4} sx={{ mb: 2 }}>
         <Grid item xs={12} md={6}>
           <Typography variant="h5" component="div" sx={{ mb: 2 }}>
-            Récapitulatif des inscripciones
+            Resumen de inscripciones
           </Typography>
           <Card variant="outlined" sx={{ mb: 2 }}>
             <TableContainer>
@@ -325,10 +325,10 @@ const CourseRegistrationFormStep3Confirmation: React.FC<Pick<CourseRegistrationF
                       Tipo de sesión
                     </TableCell>
                     <TableCell sx={{ textAlign: 'center', fontWeight: 'bold' }}>
-                      Date et horaire
+                      Fecha y horario
                     </TableCell>
                     <TableCell sx={{ textAlign: 'center', fontWeight: 'bold' }}>
-                      Prix
+                      Precio
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -343,10 +343,10 @@ const CourseRegistrationFormStep3Confirmation: React.FC<Pick<CourseRegistrationF
                             </TableCell>
                           )}
                           <TableCell>
-                            {[formatWeekday(course.dateStart), formatDateDDsmmYYYY(course.dateStart), 'de', formatTimeHHhMM(course.dateStart), 'à', formatTimeHHhMM(course.dateEnd)].join(' ')}
+                            {[formatWeekday(course.dateStart), formatDateDDsmmYYYY(course.dateStart), 'de', formatTimeHHhMM(course.dateStart), 'a', formatTimeHHhMM(course.dateEnd)].join(' ')}
                           </TableCell>
                           <TableCell sx={{ textAlign: 'right' }}>
-                            {`${course.price} €`}
+                            {`${course.price} $`}
                           </TableCell>
                         </TableRow>
                       ))}
@@ -354,38 +354,38 @@ const CourseRegistrationFormStep3Confirmation: React.FC<Pick<CourseRegistrationF
                   ))}
                   <TableRow sx={{ bgcolor: 'grey.100' }}>
                     <TableCell colSpan={2} sx={{ textAlign: 'center', fontWeight: 'bold' }}>
-                      {`${selectedCourses.length} séance${selectedCourses.length > 1 ? 's' : ''} au total`}
+                      {`${selectedCourses.length} sesión${selectedCourses.length > 1 ? 'es' : ''} en total`}
                     </TableCell>
                     <TableCell sx={{ fontWeight: 'bold', textAlign: 'right' }}>
                       {selectedCourses.map(({ price }) => price).reduce((a, b) => a + b, 0)}
-                      {' €'}
+                      {' $'}
                     </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
             </TableContainer>
           </Card>
-
+  
           <RegistrationNoticeRecap />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h5" component="div" sx={{ mb: 2 }}>
             {self ? (
               <>
-                Vos informations personnelles
+                Tus datos personales
               </>
             ) : (
               <>
-                Informations personnelles du proche
+                Datos personales del familiar
               </>
             )}
           </Typography>
           <Grid container spacing={2} sx={{ mb: 2 }}>
             <Grid item xs={12}>
-              <TextFieldElement variant="standard" name="name" label="Nom complet" fullWidth />
+              <TextFieldElement variant="standard" name="name" label="Nombre completo" fullWidth />
             </Grid>
             <Grid item xs={12}>
-              <TextFieldElement variant="standard" name="email" label="Adresse e-mail" fullWidth />
+              <TextFieldElement variant="standard" name="email" label="Dirección de correo electrónico" fullWidth />
             </Grid>
           </Grid>
           <RegistrationNoticePersonalInformation self={self} />
@@ -395,13 +395,13 @@ const CourseRegistrationFormStep3Confirmation: React.FC<Pick<CourseRegistrationF
         <Grid item xs={12}>
           <CheckboxElement
             name="notify"
-            label={`Recevoir une copie ${self ? 'de mes' : 'des'} inscripciones par e-mail${self ? '' : ' (le proche recevra également une copie si une adresse est renseignée)'}`}
+            label={`Recibir una copia ${self ? 'de mis' : 'de las'} inscripciones por correo electrónico${self ? '' : ' (el familiar también recibirá una copia si se proporciona una dirección)'}`}
           />
         </Grid>
         <Grid item xs={12}>
           <CheckboxElement
             name="consent"
-            label={`J'ai pris connaissance du règlement intérieur, en outre je m'engage à ${self ? 'me désinscrire' : 'désinscrire le proche'} dans les meilleurs délais si ${self ? 'je ne peux' : 'il ou elle ne peut'} plus assister à une ou plusieurs séances`}
+            label={`He leído y acepto el reglamento interno, además me comprometo a ${self ? 'darme de baja' : 'dar de baja al familiar'} lo antes posible si ${self ? 'no puedo' : 'él o ella no puede'} asistir a una o varias sesiones`}
           />
         </Grid>
       </Grid>
@@ -419,21 +419,21 @@ const CourseRegistrationFormStep3Confirmed: React.FC<CourseRegistrationFormStepC
       </Box>
       <Box textAlign="center" sx={{ mb: 4 }}>
         <Box>
-          Vos inscripciones ont bien été prises en compte et nous vous en remercions.
+          Tus inscripciones han sido registradas correctamente y te lo agradecemos.
         </Box>
         <Box>
-          Vous pouvez dès à présent les retrouver sur
+          Puedes encontrarlas ahora mismo en
           {' '}
-          <Link href="/mes-inscripciones" passHref legacyBehavior>
-            <MuiLink>votre page personnelle</MuiLink>
+          <Link href="/mis-inscripciones" passHref legacyBehavior>
+            <MuiLink>tu página personal</MuiLink>
           </Link>
           .
         </Box>
         <Box>
-          En cas de question, n'hésitez pas à
+          Si tienes alguna pregunta, no dudes en
           {' '}
           <Link href="/a-propos" passHref legacyBehavior>
-            <MuiLink>nous contacter</MuiLink>
+            <MuiLink>contactarnos</MuiLink>
           </Link>
           {' '}
           !
@@ -444,7 +444,7 @@ const CourseRegistrationFormStep3Confirmed: React.FC<CourseRegistrationFormStepC
 };
 
 const CourseRegistrationFormStepper: React.FC<{ done: boolean }> = ({ done }) => {
-  const stepNames = [`Choix du bénéficiaire`, `Sélection des séances`, `Confirmation`];
+  const stepNames = [`Elección del beneficiario`, `Selección de sesiones`, `Confirmación`];
   const { watch } = useFormContext<CourseRegistrationFieldValues>();
   const watchStep = watch('step');
 
@@ -599,10 +599,10 @@ const CourseRegistrationForm: React.FC<Pick<CourseRegistrationFormProps, 'course
     onSuccess: async () => {
       await Promise.all(([trpcClient.self.managedUsers, trpcClient.self.findAllRegisteredCourses, trpcClient.self.profile, trpcClient.public.findAllModels, trpcClient.public.findAllFutureCourses]).map(procedure => procedure.invalidate()));
       reloadSession();
-      enqueueSnackbar(`Vos inscripciones ont bien été prises en compte`, { variant: 'success' });
+      enqueueSnackbar(`Tus inscripciones han sido registradas correctamente`, { variant: 'success' });
     },
     onError: () => {
-      enqueueSnackbar(`Une erreur est survenue au moment de soumettre vos inscripciones`, { variant: 'error' });
+      enqueueSnackbar(`Ocurrió un error al enviar tus inscripciones`, { variant: 'error' });
     },
   });
   return (

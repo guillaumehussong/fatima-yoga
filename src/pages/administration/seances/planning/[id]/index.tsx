@@ -168,7 +168,7 @@ const CourseContent: React.FunctionComponent<CourseContentProps> = ({ course }: 
             rows={[
               { header: 'Type', value: CourseTypeNames[course.type] },
               { header: 'Places', value: course.slots },
-              { header: 'Prix', value: `${course.price} €` },
+              { header: 'Prix', value: `${course.price} $` },
               { header: 'Date', value: formatDateDDsMMsYYYY(course.dateStart) },
               { header: 'Heures', value: `${formatTimeHHhMM(course.dateStart)} à ${formatTimeHHhMM(course.dateEnd)}` },
               { header: 'Visibilité', value:

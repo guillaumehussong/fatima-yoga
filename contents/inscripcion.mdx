@@ -1,42 +1,39 @@
-import { InternalLink } from '../src/components/contents/common/InternalLink'; import {
-  CourseRegistrationFormWidget
-} from '../src/components/CourseRegistrationFormWidget';
-import {
-  FrontsiteContent
-} from '../src/components/layout/public/FrontsiteContent';
+import { InternalLink } from '../src/components/contents/common/InternalLink';
+import { CourseRegistrationFormWidget } from '../src/components/CourseRegistrationFormWidget';
+import { FrontsiteContent } from '../src/components/layout/public/FrontsiteContent';
 import { EMAIL_CONTACT, FACEBOOK_PAGE_URL } from '../src/common/config';
 import { Link as MuiLink } from '@mui/material';
 
 export const meta = {
-  title: 'Inscripcion à des séances de Yoga',
-  description: `Inscripciones en ligne aux séances de Yoga adulte pour réserver sa place en petit groupe (maximum 5 personnes).`,
+  title: 'Inscripción a sesiones de Yoga',
+  description: `Inscripciones en línea a las sesiones de Yoga para adultos, para reservar su lugar en un grupo pequeño (máximo 5 personas).`,
 };
 
-* Les inscripciones aux séances de Yoga adulte se font via le formulaire ci-dessous.<br />
-Pour une inscripcion à des séances de Yoga enfant et Yoga parent-enfant,
-veuillez nous <MuiLink href={`mailto:${EMAIL_CONTACT}`} target="_blank" rel="noopener noreferrer">envoyer un e-mail</MuiLink> ou
-nous écrire depuis <MuiLink href={FACEBOOK_PAGE_URL} target="_blank" rel="noreferrer nofollow">notre page Facebook</MuiLink>.
-* La première séance vous est proposée à 10 € à la date de votre choix. Ne programmez que celle-ci pour débuter.
-* Dès que vous aurez validé le formulaire, vos inscripciones apparaîtront sur
-<MuiLink href="/mes-inscripciones" target="_blank">votre page personnelle</MuiLink>.
-* Vous reconnaissez avoir pris connaissance du <MuiLink href="/reglement-interieur" target="_blank">règlement intérieur</MuiLink>.
-Vos données sont traitées selon notre <MuiLink href="/confidentialite" target="_blank">politique de confidentialité</MuiLink>.
+* Las inscripciones a las sesiones de Yoga para adultos se realizan a través del formulario a continuación.<br />
+Para la inscripción a las sesiones de Yoga para niños y Yoga para padres e hijos,
+por favor <MuiLink href={`mailto:${EMAIL_CONTACT}`} target="_blank" rel="noopener noreferrer">envíenos un correo electrónico</MuiLink> o
+escríbanos desde <MuiLink href={FACEBOOK_PAGE_URL} target="_blank" rel="noreferrer nofollow">nuestra página de Facebook</MuiLink>.
+* La primera sesión se ofrece a 10 $ en la fecha de su elección. Solo programe esta sesión para comenzar.
+* Una vez que haya validado el formulario, sus inscripciones aparecerán en
+<MuiLink href="/mis-inscripciones" target="_blank">su página personal</MuiLink>.
+* Usted reconoce haber leído el <MuiLink href="/reglement-interieur" target="_blank">reglamento interno</MuiLink>.
+Sus datos son tratados de acuerdo con nuestra <MuiLink href="/confidentialite" target="_blank">política de privacidad</MuiLink>.
 
 <CourseRegistrationFormWidget />
 
 export const RegistrationNoticeRecap = () => (
   <>
-   Ce montant dépend de votre régularité aux cours (de 12€ ou 13,5€ par lot à 15€ à l’unité) et n’inclut pas la cotisation annuelle à l’association Yoga-Sof de 15€. Il est à régler à l’avance, de préférence via la billetterie en ligne par carte bancaire (via HelloAsso) ou bien en liquide sur place.
+    Este monto depende de su regularidad en las clases (de 12$ o 13,5$ por lote a 15$ por unidad) y no incluye la cuota anual a la asociación Yoga-Sof de 15$. Se debe pagar por adelantado, preferiblemente a través de la taquilla en línea con tarjeta de crédito (a través de HelloAsso) o en efectivo en el lugar.
   </>
 );
 
 export const RegistrationNoticePersonalInformation = ({ self }) => self ? (
   <>
-    À compléter ou corriger au besoin, votre adresse e-mail est nécessaire pour communiquer avec vous.
+    Complete o corrija según sea necesario, su dirección de correo electrónico es necesaria para comunicarnos con usted.
   </>
 ) : (
   <>
-    À compléter ou corriger au besoin. L'adresse email du proche est facultative.
+    Complete o corrija según sea necesario. La dirección de correo electrónico del familiar es opcional.
   </>
 );
 

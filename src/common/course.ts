@@ -1,9 +1,9 @@
 import { Course, CourseType, Prisma } from '@prisma/client';
 
 export const CourseTypeNames: { [K in CourseType]: string } = {
-  [CourseType.YOGA_ADULT]: 'Yoga adulte',
-  [CourseType.YOGA_CHILD]: 'Yoga enfant',
-  [CourseType.YOGA_ADULT_CHILD]: 'Yoga parent-enfant',
+  [CourseType.YOGA_ADULT]: 'Yoga privada',
+  [CourseType.YOGA_CHILD]: 'Yoga en Akasha Studio',
+  [CourseType.YOGA_ADULT_CHILD]: 'Office Yoga',
 }
 
 export const getCourseStatus = (course: Pick<Course, 'dateStart' | 'dateEnd'>) => {

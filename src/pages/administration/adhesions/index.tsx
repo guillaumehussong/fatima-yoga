@@ -10,26 +10,26 @@ export default function AdminMemberships() {
 
   return (
     <BackofficeContent
-      title="Adhésions"
+      title="Membresías"
       icon={<Groups />}
       quickActions={[
-        { icon: <PersonAdd />, name: 'Créer une ou plusieurs adhésions', url: '/administration/adhesions/membres/creation' },
-        { icon: <Groups />, name: `Nouveau type d'adhésion`, url: '/administration/adhesions/types/creation' },
+        { icon: <PersonAdd />, name: 'Crear una o varias membresías', url: '/administration/adhesions/membres/creation' },
+        { icon: <Groups />, name: 'Nuevo tipo de membresía', url: '/administration/adhesions/types/creation' },
       ]}
     >
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Types d'adhésions
+        Tipos de membresías
       </Typography>
       <Typography paragraph>
-        Les adhésions se présentent soit sous la forme de cotisations individuelles ou bien de cotisations familiales.
+        Las membresías se presentan ya sea en forma de contribuciones individuales o contribuciones familiares.
       </Typography>
       <MembershipModelCards />
-
+  
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Adhésions
+        Membresías
       </Typography>
       <Typography paragraph>
-        Les adhésions sont valables pour une durée d'un an à compter du 1er septembre. Ci-dessous toutes les adhésions à l'association.
+        Las membresías son válidas por un año a partir del 1 de septiembre. A continuación, todas las membresías de la asociación.
       </Typography>
       <MembershipGrid />
     </BackofficeContent>

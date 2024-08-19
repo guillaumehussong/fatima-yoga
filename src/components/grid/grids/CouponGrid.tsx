@@ -137,7 +137,7 @@ export const CouponGrid: React.FunctionComponent<CouponGridProps> = ({ userId, c
     },
     {
       field: 'quantity',
-      headerName: 'Séances restantes',
+      headerName: 'Sesiones restantes',
       flex: 1,
       minWidth: 150,
       valueGetter: ({ row }: GridValueGetterParams<CouponItem>): [number, number] => [row.quantity, row.quantity - row.orderCourseRegistrations.length],
@@ -171,7 +171,7 @@ export const CouponGrid: React.FunctionComponent<CouponGridProps> = ({ userId, c
       headerName: `Prix d'achat`,
       flex: 1,
       minWidth: 100,
-      valueFormatter: ({ value }: GridValueFormatterParams<number>) => value > 0 ? `${value} €` : 'Gratuit',
+      valueFormatter: ({ value }: GridValueFormatterParams<number>) => value > 0 ? `${value} $` : 'Gratuit',
     },
     relativeTimestamp({
       field: 'createdAt',

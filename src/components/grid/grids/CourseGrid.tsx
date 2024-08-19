@@ -106,7 +106,7 @@ export const CourseGrid: React.FunctionComponent<CourseGridProps> = ({ future, c
       headerName: 'Prix',
       minWidth: 80,
       flex: 0.5,
-      valueFormatter: ({ value }: GridValueFormatterParams<number>) => value > 0 ? `${value} €` : 'Gratuit',
+      valueFormatter: ({ value }: GridValueFormatterParams<number>) => value > 0 ? `${value} $` : 'Gratuit',
     },
     {
       field: 'registrations',

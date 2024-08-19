@@ -34,7 +34,7 @@ const HomepageCourse: React.FC<HomepageCourseProps> = ({ course, imageUrl, index
               />
               <CardContent sx={{ flex: 1 }}>
                 <Typography component="h2" variant="h5" sx={{ mb: 1 }}>
-                  Séances de {CourseTypeNames[type]}
+                  Sesiones de {CourseTypeNames[type]}
                 </Typography>
                 {children}
                 <Grid container justifyContent="center">

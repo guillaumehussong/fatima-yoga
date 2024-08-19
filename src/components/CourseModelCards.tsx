@@ -46,7 +46,7 @@ export const CourseModelCards: React.FC<CourseModelCardsProps> = ({ readOnly }) 
             <strong>{slots}</strong> place{slots > 1 && 's'}
           </Typography>
           <Typography color="text.secondary">
-            <strong>{price} €</strong> par séance
+            <strong>{price} $</strong> par séance
           </Typography>
         </>
       )}

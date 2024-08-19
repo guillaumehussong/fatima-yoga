@@ -22,25 +22,25 @@ export const MembershipModelCards: React.FC = () => {
       deleteInvalidate={[trpcClient.membershipModel.find, trpcClient.membershipModel.findAll]}
       urlEditFor={({ id }) => `/administration/adhesions/types/${id}/edition`}
       urlCreate="/administration/adhesions/types/creation"
-      createLabel="Nouveau type"
+      createLabel="Nuevo tipo"
       skeletonCardHeight={130}
       renderCardContent={({ id, price }: MembershipModel) => (
         <>
           <Stack direction="row" alignItems="center" gap={1} sx={{ mb: 1 }}>
             <Groups />
             <Typography variant="h5" component="div">
-              Adhésion
+              Membresía
               {' '}
               {MembershipTypeNames[id].toLowerCase()}
             </Typography>
           </Stack>
           <Typography color="text.secondary">
-            <strong>{price} €</strong> par adhésion de <strong>1 an</strong>
+            <strong>{price} $</strong> por membresía de <strong>1 año</strong>
           </Typography>
         </>
       )}
       renderAdditionalActions={({ id }: MembershipModel, disabled) => (
-        <Tooltip title="Inscrire une adhésion">
+        <Tooltip title="Registrar una membresía">
           <IconButton size="small" disabled={disabled} onClick={() => router.push({ pathname: '/administration/adhesions/membres/creation', query: { membershipModelId: id } })}><PersonAdd /></IconButton>
         </Tooltip>
       )}

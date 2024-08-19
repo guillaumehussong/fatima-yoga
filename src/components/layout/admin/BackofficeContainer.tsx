@@ -38,34 +38,34 @@ export const BackofficeContainer: React.FC<BackofficeContainerProps> = ({ childr
           ],
         },
         {
-          title: 'Organisation',
+          title: 'Organización',
           children: [
-            { title: 'Séances', icon: <DateRange />, url: '/administration/seances' },
+            { title: 'Sesiones', icon: <DateRange />, url: '/administration/seances' },
             { title: 'Inscripciones', icon: <Assignment />, url: '/administration/inscripciones' },
-            { title: 'Utilisateurs', icon: <People />, url: '/administration/utilisateurs' },
+            { title: 'Usuarios', icon: <People />, url: '/administration/utilisateurs' },
           ],
         },
         {
-          title: 'Comptabilité',
+          title: 'Contabilidad',
           children: [
-            { title: 'Paiements', icon: <Payments />, url: '/administration/paiements' },
-            { title: 'Adhésions', icon: <Groups />, url: '/administration/adhesions' },
-            { title: 'Cartes', icon: <CardGiftcard />, url: '/administration/cartes' },
-            { title: 'Transactions', icon: <SwapHoriz />, url: '/administration/transactions' },
-            { title: 'Statistiques', icon: <Timeline />, url: '/administration/statistiques' },
+            { title: 'Pagos', icon: <Payments />, url: '/administration/paiements' },
+            { title: 'Membresías', icon: <Groups />, url: '/administration/adhesions' },
+            { title: 'Tarjetas', icon: <CardGiftcard />, url: '/administration/cartes' },
+            { title: 'Transacciones', icon: <SwapHoriz />, url: '/administration/transactions' },
+            { title: 'Estadísticas', icon: <Timeline />, url: '/administration/statistiques' },
           ],
         },
         {
-          title: 'Administration',
+          title: 'Administración',
           children: [
-            { title: 'Rôles', icon: <AdminPanelSettings />, url: '/administration/roles' },
+            { title: 'Roles', icon: <AdminPanelSettings />, url: '/administration/roles' },
             { title: 'Emails', icon: <Email />, url: '/administration/emails' },
-            { title: 'Paramètres', icon: <Settings />, url: '/administration/parametres' },
+            { title: 'Configuración', icon: <Settings />, url: '/administration/parametres' },
           ],
         },
         {
           children: [
-            { title: 'Voir le site', icon: <Home />, url: '/' },
+            { title: 'Ver el sitio', icon: <Home />, url: '/' },
           ],
         },
       ]}

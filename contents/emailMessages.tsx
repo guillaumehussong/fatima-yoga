@@ -142,7 +142,7 @@ export const EmailMessageTemplateOrderCreatedInformation: EmailMessageWithConten
   subject: () => `Confirmation de paiement`,
   body: ({ order }) => (
     <>
-      Je confirme bonne réception du paiement d'un montant de {order?.payment?.amount ?? 0} € en faveur de Fátima Domíguez Yoga.
+      Je confirme bonne réception du paiement d'un montant de {order?.payment?.amount ?? 0} $ en faveur de Fátima Domíguez Yoga.
       {canGenerateInvoice(order) && (
         <>
           <br />

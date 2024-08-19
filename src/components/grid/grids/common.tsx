@@ -25,7 +25,7 @@ export const userColumn = <R extends GridValidRowModel = any>(params: PartialGri
 });
 
 export const usersColumn = <R extends GridValidRowModel = any>(params: PartialGridEnrichedColDef<R>, options?: { excludeUserId?: number }): GridBaseColDef<R, User[]> => ({
-  headerName: 'Utilisateurs',
+  headerName: 'Usuarios',
   sortable: false,
   renderCell: ({ value }) => (
     <Stack direction="column">

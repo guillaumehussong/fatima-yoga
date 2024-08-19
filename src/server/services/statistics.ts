@@ -98,8 +98,8 @@ export const findPaymentsCategories = async ({ recipient }: { recipient?: Paymen
       const scale = payment.amount / (weightCourseRegistrations + weightCoupons + weightMemberships);
 
       return [
-        { id: 'courseRegistration', name: 'Séances', amount: weightCourseRegistrations * scale },
-        { id: 'coupon', name: 'Cartes', amount: weightCoupons * scale },
+        { id: 'courseRegistration', name: 'Sesiones', amount: weightCourseRegistrations * scale },
+        { id: 'coupon', name: 'Tarjetas', amount: weightCoupons * scale },
         { id: 'membership', name: 'Adhésions', amount: weightMemberships * scale },
       ];
     });

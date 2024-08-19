@@ -102,10 +102,10 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ userId }) => {
         [trpcClient.self.managedUsers, trpcClient.self.profile]
       ).map(procedure => procedure.invalidate()));
       reloadSession();
-      enqueueSnackbar('Vos données ont été mises à jour', { variant: 'success' });
+      enqueueSnackbar('Tus datos han sido actualizados', { variant: 'success' });
     },
     onError: () => {
-      enqueueSnackbar('Une erreur est survenue lors de la mise à jour de vos données', { variant: 'error' });
+      enqueueSnackbar('Ocurrió un error al actualizar tus datos', { variant: 'error' });
     },
   });
 
@@ -119,14 +119,14 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ userId }) => {
     >
       <Grid container spacing={2} sx={{ mt: 1, mb: 2 }}>
         <Grid item {...sizeInput}>
-          <TextFieldElement name="name" label="Nom complet" fullWidth disabled={isUpdateLoading} />
+          <TextFieldElement name="name" label="Nombre completo" fullWidth disabled={isUpdateLoading} />
         </Grid>
         <Grid item {...sizeInput}>
-          <TextFieldElement name="email" label="Adresse e-mail" fullWidth disabled={isUpdateLoading} />
+          <TextFieldElement name="email" label="Dirección de correo electrónico" fullWidth disabled={isUpdateLoading} />
         </Grid>
         <Grid item {...sizeButton} alignItems="stretch">
           <Button type="submit" variant="outlined" startIcon={<Save />} fullWidth disabled={isUpdateLoading} sx={{ height: '100%' }}>
-            Sauvegarder
+            Guardar
           </Button>
         </Grid>
       </Grid>
@@ -148,42 +148,42 @@ const UserTabPanelContent: React.FC<UserTabPanelProps> = ({ userId, publicAccess
   return (
     <>
       <Typography variant="h5" component="div" sx={{ my: 2 }}>
-        Séances
+        Sesiones
       </Typography>
       <Typography paragraph>
-        Les séances à venir pour lesquelles vous êtes inscrit(e).
-        Vous retrouverez également l'historique de vos inscripciones et participations.
+        Las sesiones futuras para las que estás inscrito(a).
+        También encontrarás el historial de tus inscripciones y participaciones.
       </Typography>
       <Stack direction="column" spacing={2}>
         <FrontsiteCourseGrid userId={userId} future={true} userCanceled={false} />
-        <FrontsiteCourseGrid userId={userId} future={false} userCanceled={false} collapsible collapsedSummary="Séances passées" />
-        <FrontsiteCourseGrid userId={userId} future={null} userCanceled={true} collapsible collapsedSummary="Séances désinscrites" />
+        <FrontsiteCourseGrid userId={userId} future={false} userCanceled={false} collapsible collapsedSummary="Sesiones pasadas" />
+        <FrontsiteCourseGrid userId={userId} future={null} userCanceled={true} collapsible collapsedSummary="Sesiones canceladas" />
       </Stack>
       <Typography variant="h5" component="div" sx={{ my: 2 }}>
-        Cartes
+        Tarjetas
       </Typography>
       <Typography paragraph>
-        Si vous avez acheté des cartes de séances, leur solde s'affichera ci-dessous.
+        Si has comprado tarjetas de sesiones, su saldo se mostrará a continuación.
       </Typography>
       <FrontsiteCouponGrid userId={userId} />
       <Typography variant="h5" component="div" sx={{ my: 2 }}>
-        Adhésions
+        Membresías
       </Typography>
       <Typography paragraph>
-        Vos adhésions à l'association Fátima Domíguez Yoga en tant que membre sont listées ci-dessous.
+        Tus membresías a la asociación Fátima Domíguez Yoga como miembro están listadas a continuación.
       </Typography>
       <FrontsiteMembershipGrid userId={userId} />
       <Typography variant="h5" component="div" sx={{ my: 2 }}>
-        Données personnelles
+        Datos personales
       </Typography>
-      Votre adresse email nous permet notamment de vous informer en cas d'annulation de séance.
+      Tu dirección de correo electrónico nos permite informarte en caso de cancelación de una sesión.
       <UserDataForm userId={userId} />
-      Vos données personnelles sont traitées conformément à notre <Link href="/confidentialite" passHref legacyBehavior><MuiLink>politique de confidentialité</MuiLink></Link>,
-      en particulier celles-ci ne sont utilisées que dans le but d'assurer l'inscripcion et l'organisation des séances de Yoga.
+      Tus datos personales se tratan conforme a nuestra <Link href="/confidentialite" passHref legacyBehavior><MuiLink>política de privacidad</MuiLink></Link>,
+      en particular, estos solo se utilizan con el fin de garantizar la inscripción y organización de las sesiones de Yoga.
       <Typography variant="h5" component="div" sx={{ my: 2 }}>
-        Calendrier personnel
+        Calendario personal
       </Typography>
-      Vous retrouverez sur ce calendrier toutes vos séances passées et futures.
+      Encontrarás en este calendario todas tus sesiones pasadas y futuras.
       <CalendarWidget userId={userId} />
       <CalendarLinkButton publicAccessToken={publicAccessToken} />
     </>
@@ -201,20 +201,20 @@ const MesInscripcionesContent: React.FC<MesInscripcionesContentProps> = ({ sessi
   const { data, isLoading } = trpc.self.managedUsers.useQuery();
   const managedUsersIncludingSelf = useMemo(() =>
     data ? [
-      { id: session.userId, name: `${session.displayName ?? session.displayEmail} (vous)`, publicAccessToken: session.publicAccessToken },
+      { id: session.userId, name: `${session.displayName ?? session.displayEmail} (tú)`, publicAccessToken: session.publicAccessToken },
       ...data.managedUsers,
     ] : undefined,
     [data, session]
   );
 
   return (
-    <FrontsiteContent title="Mes inscripciones">
-      Cette page liste l'ensemble de vos inscripciones aux séances de Yoga (ainsi que celles de vos proches le cas échéant).
+    <FrontsiteContent title="Mis inscripciones">
+      Esta página muestra todas tus inscripciones a las sesiones de Yoga (así como las de tus familiares si es el caso).
       <br />
-      Ces inscripciones se font au moyen de <Link href="/inscripcion" passHref legacyBehavior><MuiLink>ce formulaire</MuiLink></Link>.
+      Estas inscripciones se realizan a través de <Link href="/inscripcion" passHref legacyBehavior><MuiLink>este formulario</MuiLink></Link>.
       {data && data.managedByUser && (
         <Alert severity="info" sx={{ mt: 2 }}>
-          Votre compte est actuellement relié à celui de <strong>{data.managedByUser.name}</strong>, ce qui lui offre la possibilité de gérer vos inscripciones à votre place.
+          Tu cuenta está actualmente vinculada a la de <strong>{data.managedByUser.name}</strong>, lo que le permite gestionar tus inscripciones en tu lugar.
         </Alert>
       )}
       <Box>

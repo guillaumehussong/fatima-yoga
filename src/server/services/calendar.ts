@@ -50,7 +50,7 @@ const generateCoachICS = (courses: Prisma.CourseGetPayload<{ include: { registra
         ...common,
         title: `${common.title} (${gauge})`,
         uid: uidFor('course-coach', courseId),
-        description: `${gauge} participant(s) inscrit(s). Prix unitaire de ${price} €.${notes ? `\n${notes}` : ''}\n\n${url}`,
+        description: `${gauge} participant(s) inscrit(s). Prix unitaire de ${price} $.${notes ? `\n${notes}` : ''}\n\n${url}`,
         url,
         attendees: nonCanceledRegistrations.map(({ user: { id: userId, /* customEmail, */ customName, /* email, */ name } }) => ({
           name: customName || name || '?',
@@ -78,7 +78,7 @@ const generateParticipantICS = (registrations: Prisma.CourseRegistrationGetPaylo
   const { error, value } = createEvents(
     registrations.map(({ course }) => {
       const common = getCommonCourseFields(course);
-      const url = `${process.env.NEXTAUTH_URL}/mes-inscripciones`;
+      const url = `${process.env.NEXTAUTH_URL}/mis-inscripciones`;
       return {
         ...common,
         uid: uidFor('course', course.id),

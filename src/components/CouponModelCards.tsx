@@ -22,25 +22,25 @@ export const CouponModelCards: React.FC = () => {
       deleteInvalidate={[trpcClient.couponModel.find, trpcClient.couponModel.findAll]}
       urlEditFor={({ id }) => `/administration/cartes/types/${id}/edition`}
       urlCreate="/administration/cartes/types/creation"
-      createLabel="Nouveau type"
+      createLabel="Nuevo tipo"
       skeletonCardHeight={130}
       renderCardContent={({ courseType, quantity, price }: CouponModel) => (
         <>
           <Stack direction="row" alignItems="center" gap={1} sx={{ mb: 1 }}>
             <CardGiftcard />
             <Typography variant="h5" component="div">
-              Carte
+              Tarjeta
               {' '}
               {CourseTypeNames[courseType].toLowerCase()}
             </Typography>
           </Stack>
           <Typography color="text.secondary">
-            <strong>{price} €</strong> par carte de <strong>{quantity}</strong> séance{quantity > 1 ? 's' : ''}
+            <strong>{price} $</strong> por tarjeta de <strong>{quantity}</strong> sesión{quantity > 1 ? 'es' : ''}
           </Typography>
         </>
       )}
       renderAdditionalActions={({ id }: CouponModel, disabled) => (
-        <Tooltip title="Générer une carte">
+        <Tooltip title="Generar una tarjeta">
           <IconButton size="small" disabled={disabled} onClick={() => router.push({ pathname: '/administration/cartes/emises/creation', query: { couponModelId: id } })}><AddCard /></IconButton>
         </Tooltip>
       )}

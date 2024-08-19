@@ -9,28 +9,28 @@ export default function AdminCoupons() {
 
   return (
     <BackofficeContent
-      title="Cartes"
+      title="Tarjetas"
       icon={<CardGiftcard />}
       quickActions={[
-        { icon: <AddCard />, name: 'Générer une carte', url: '/administration/cartes/emises/creation' },
-        { icon: <CardGiftcard />, name: 'Nouveau type de carte', url: '/administration/cartes/types/creation' },
+        { icon: <AddCard />, name: 'Generar una tarjeta', url: '/administration/cartes/emises/creation' },
+        { icon: <CardGiftcard />, name: 'Nuevo tipo de tarjeta', url: '/administration/cartes/types/creation' },
       ]}
     >
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Types de cartes
+        Tipos de tarjetas
       </Typography>
       <Typography paragraph>
-        Ces types correspondent aux cartes qui seront (à l'avenir) achetables depuis la boutique.
-        Tout comme les modèles de séances, vous pouvez modifier et/ou supprimer des types de cartes sans affecter les cartes qui ont déjà été générées.
+        Estos tipos corresponden a las tarjetas que (en el futuro) se podrán comprar en la tienda.
+        Al igual que los modelos de sesiones, puedes modificar y/o eliminar tipos de tarjetas sin afectar las tarjetas que ya se han generado.
       </Typography>
       <CouponModelCards />
 
       <Typography variant="h6" component="div" sx={{ mt: 2, mb: 1 }}>
-        Cartes émises
+        Tarjetas emitidas
       </Typography>
       <Typography paragraph>
-        Une carte émise peut être utilisée comme moyen de paiement dans la boutique.
-        Elle peut être désactivée par un administrateur.
+        Una tarjeta emitida se puede utilizar como medio de pago en la tienda.
+        Puede ser desactivada por un administrador.
       </Typography>
       <CouponGrid />
     </BackofficeContent>

@@ -23,7 +23,7 @@ interface PurchasesTableProps {
 
 export const PurchasesTable: React.FC<PurchasesTableProps> = ({ rows, totalToPay, paid, small }) => {
 
-  const displayPrice = (price: number) => `${price} €`;
+  const displayPrice = (price: number) => `${price} $`;
 
   // Trick from: https://stackoverflow.com/a/43615091
   const shrink = {
