@@ -432,7 +432,7 @@ const CourseRegistrationFormStep3Confirmed: React.FC<CourseRegistrationFormStepC
         <Box>
           Si tienes alguna pregunta, no dudes en
           {' '}
-          <Link href="/a-propos" passHref legacyBehavior>
+          <Link href="/acerca-de" passHref legacyBehavior>
             <MuiLink>contactarnos</MuiLink>
           </Link>
           {' '}

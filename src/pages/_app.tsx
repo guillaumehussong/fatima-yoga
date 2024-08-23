@@ -81,7 +81,7 @@ interface LayoutProviderProps {
 }
 
 const LayoutProvider = ({ router, children }: LayoutProviderProps): JSX.Element => {
-  if (router.pathname === '/connexion' || router.pathname === '/redirection' || router.pathname === '/verification') {
+  if (router.pathname === '/connexion' || router.pathname === '/redirection' || router.pathname === '/verificacion') {
     return (
       <>
         {children}

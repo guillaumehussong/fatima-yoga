@@ -8,24 +8,24 @@ const EmailSentPage: React.FC = () => {
   return (
     <>
       <CssBaseline />
-      <HeadMeta title="Connexion à Fátima Domíguez Yoga : e-mail envoyé" />
+      <HeadMeta title="Conexión a Fátima Domíguez Yoga: correo enviado" />
       <Grid container justifyContent="center">
         <Grid item xs={12} sm={9} md={6} lg={4} xl={3}>
           <Box sx={{ my: 3, mx: 2 }}>
             <Card variant="outlined">
               <CardContent>
                 <Typography variant="h6" component="div" textAlign="center" sx={{ mb: 2 }}>
-                  E-mail envoyé
+                  Correo enviado
                 </Typography>
                 <Typography paragraph sx={{ mb: 0 }}>
-                  Consultez votre boîte de réception, nous vous avons envoyé un lien pour vous connecter au site.
+                  Consulta tu bandeja de entrada, te hemos enviado un enlace para que te conectes al sitio.
                 </Typography>
               </CardContent>
             </Card>
             <Box textAlign="center" sx={{ mt: 2 }}>
               <Link href="/" passHref legacyBehavior>
                 <MuiLink>
-                  Retourner à l'accueil
+                  Volver a la página de inicio
                 </MuiLink>
               </Link>
             </Box>
