@@ -24,6 +24,7 @@ import { HomepageBanner } from '../src/components/contents/homepage/HomepageBann
 import {
   FrontsiteContent
 } from '../src/components/layout/public/FrontsiteContent';
+import Background from '../src/components/layout/Background'; // Assurez-vous d'importer correctement le composant
 
 export const meta = {
   title: 'Accueil',
@@ -32,7 +33,7 @@ export const meta = {
   description: `Cours de Hatha Yoga, De Gasquet, à la carte, en petit groupe à Hésingue. Animations ludiques Yoga enfant, parent-enfant à La Comète.`,
 };
 
-<HomepageBanner
+{/* <HomepageBanner
   items={[
     'Bienestar Corporativo',
     'Yoga',
@@ -41,7 +42,8 @@ export const meta = {
     'Mindfulness'
   ]}
   leftText="Welcome to Great Fitness, Los Angeles' premier destination for yoga and fitness enthusiasts. Nestled in the vibrant heart of the city, we offer a sanctuary where mind, body, and spirit align."
-/>
+/> */}
+{/* <Background /> Ajout du composant Background */}
 <HomepageDivider>Nos servicios</HomepageDivider>
 <HomepageCards>
   <HomepageCards.Card
@@ -85,7 +87,7 @@ Venez vivre une pause privilégiée loin de la dispersion et de l'agitation du m
 
 <HomepageDivider arrows>Nos valeurs</HomepageDivider>
 
-<HomepageCards>
+{/* <HomepageCards>
   <HomepageCards.Card
     title="Effectifs réduits"
     description="Les séances se déroulent en petit nombre."
@@ -101,7 +103,7 @@ Venez vivre une pause privilégiée loin de la dispersion et de l'agitation du m
     description={`Les séances adultes peuvent être choisies "à la carte".`}
     icon={<CalendarMonthTwoTone fontSize="large" />}
   />
-</HomepageCards>
+</HomepageCards>*/} 
 
 <HomepageAlert>La première séance vous est proposée à 10$. <InternalLink href="/inscripcion">Je m'inscris maintenant</InternalLink></HomepageAlert>
 
@@ -110,4 +112,4 @@ Venez vivre une pause privilégiée loin de la dispersion et de l'agitation du m
   author="Sri B.K.S Iyengar"
 /> 
 
-export default ({ children }) => <FrontsiteContent {...meta} backgroundUrl="/images/bg1.jpg">{children}</FrontsiteContent>
+export default ({ children }) => <FrontsiteContent {...meta}>{children}</FrontsiteContent>

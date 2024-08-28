@@ -10,11 +10,12 @@ const Background: React.FC<BackgroundProps> = ({ imageUrl }) => {
     <Box
       sx={{
         position: 'absolute',
+        imageUrl:"/images/bg1.jpg",
         top: 0,
         left: 0,
         width: '100vw',
-        //height: '100vh',
-        backgroundImage: `url(${imageUrl})`,
+        height: '100vh',
+        backgroundImage: `url("/images/bg1.jpg")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         zIndex: 1, // Ensure the background is behind other content

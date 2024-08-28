@@ -39,7 +39,6 @@ export const nextAuthOptions: NextAuthOptions = {
   },
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      console.log('signIn callback:', { user, account, profile, email, credentials });
       if (account?.providerAccountId !== null) {
         await prisma.account.updateMany({
           where: {
@@ -59,7 +58,6 @@ export const nextAuthOptions: NextAuthOptions = {
       return false;
     },
     async session({ session, user }) {
-      console.log('session callback:', { session, user });
       const isAllowedToSignIn = !user.disabled;
       if (!isAllowedToSignIn) {
         throw new Error(); // Shouldn't happen?

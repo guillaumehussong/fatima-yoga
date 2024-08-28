@@ -12,7 +12,7 @@ import {
   Toolbar,
   useMediaQuery, useTheme,
 } from '@mui/material';
-import { Menu as MenuIcon, Person } from '@mui/icons-material';
+import { AlignVerticalTop, Menu as MenuIcon, Person } from '@mui/icons-material';
 import CssBaseline from '@mui/material/CssBaseline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -227,8 +227,13 @@ function Header({logo, title, url: titleUrl, sections, profile, signInUrl}: Head
     px: '0 !important',
     zIndex: 10,
     mb: 2,
-    height: '10vh',
-    flexDirection: { xs: 'column', md: 'row' }
+    pd: 2,
+    height: '100vh',
+    position: 'relative',
+    alignItems: 'flex-start',  // Aligne les éléments en haut verticalement
+    flexDirection: { xs: 'column', md: 'row' },
+    justifyContent: 'flex-start', // Assure que les éléments sont alignés au début de la barre d'outils
+    paddingTop: '20px' // Ajoute un espace en haut
   };
 
   return (
@@ -349,8 +354,19 @@ export const FrontsiteContainerLayout: React.FC<FrontsiteContainerLayoutProps> =
   children
 }) => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <CssBaseline />
+    <Box 
+      sx={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        minHeight: '100vh', 
+        backgroundImage: `url("/images/bg1.jpg")`, 
+        backgroundRepeat: 'no-repeat', 
+        backgroundSize: 'contain', // Conserve les proportions et ajuste la taille pour être contenu dans le box
+        backgroundPosition: 'top center', // Positionne l'image au centre
+        width: '100%',
+        height: 'auto',
+      }}
+    >      <CssBaseline />
       <Container maxWidth="lg">
         <Header logo={logo} title={title} url={url} sections={sections} profile={profile} signInUrl={signInUrl} />
         <Box component="main" sx={{ mb: 2 }}>

@@ -47,3 +47,6 @@ prisma/schema.md
 
 tsconfig.tsbuildinfo
 .env
+tconfigjson
+packlockjson
+packjson

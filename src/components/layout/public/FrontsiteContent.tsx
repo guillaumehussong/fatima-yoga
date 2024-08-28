@@ -9,15 +9,13 @@ interface FrontsiteContentProps {
   hideTitle?: boolean;
   description?: string;
   children: React.ReactNode;
-  backgroundUrl?: string; // Ajout d'une propriété pour l'URL de l'image de fond
 }
 
-export const FrontsiteContent: React.FC<FrontsiteContentProps> = ({ title, hideTitleMeta, hideTitle, description, children, backgroundUrl }) => {
+export const FrontsiteContent: React.FC<FrontsiteContentProps> = ({ title, hideTitleMeta, hideTitle, description, children }) => {
   const subtitle = `Fátima Domíguez Yoga Hésingue`;
   return (
     <>
       <HeadMeta title={hideTitleMeta ? subtitle : `${title} · ${subtitle}`} description={description} />
-      <Background imageUrl={backgroundUrl || ''} /> {/* Ajout du composant Background */}
       <Box sx={{ position: 'relative' }}>
         {title && !hideTitle && (
           <Typography variant="h4">{title}</Typography>

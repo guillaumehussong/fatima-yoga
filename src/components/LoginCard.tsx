@@ -106,10 +106,6 @@ interface LoginCardProps {
 
 export const LoginCard: React.FC<LoginCardProps> = ({ providers }) => {
 
-  console.log('LG EMAIL_SERVER_HOST:', process.env.EMAIL_SERVER_HOST);
-  console.log('LG EMAIL_SERVER_PORT:', process.env.EMAIL_SERVER_PORT);
-  console.log('LG EMAIL_SERVER_USER:', process.env.EMAIL_SERVER_USER);
-
   const { data: session } = useSession();
   const emailKey = 'email';
 
