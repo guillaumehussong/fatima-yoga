@@ -10,6 +10,7 @@ DIRECTORY='backups'
 
 mkdir -p "$DIRECTORY"
 
+# Export the variables from the .env.production file
 export $(cat $ENV | xargs)
 
 # Extract the host and port from DATABASE_HOST
@@ -21,7 +22,7 @@ if [ -z "$DATABASE_PASSWORD" ]; then
   mysqldump -u"$DATABASE_USER" -h"$HOST" -P"$PORT" "$DATABASE_NAME" > "$DIRECTORY/$FILE_NAME"
 else
   echo "Running mysqldump with password"
-  mysqldump -u"$DATABASE_USER" -h"$HOST" -P"$PORT" "$DATABASE_NAME" > "$DIRECTORY/$FILE_NAME"
+  mysqldump -u"$DATABASE_USER" -p"$DATABASE_PASSWORD" -h"$HOST" -P"$PORT" "$DATABASE_NAME" > "$DIRECTORY/$FILE_NAME"
 fi
 
 echo "Wrote a backup in file $FILE_NAME"
