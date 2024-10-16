@@ -1,8 +1,8 @@
 import { Course, CourseType, Prisma } from '@prisma/client';
 
 export const CourseTypeNames: { [K in CourseType]: string } = {
-  [CourseType.YOGA_ADULT]: 'Yoga privada',
-  [CourseType.YOGA_CHILD]: 'Yoga en Akasha Studio',
+  [CourseType.YOGA_ADULT]: 'Bienestar Coporativo',
+  [CourseType.YOGA_CHILD]: 'Renacimiento y Relajación',
   [CourseType.YOGA_ADULT_CHILD]: 'Office Yoga',
 }
 

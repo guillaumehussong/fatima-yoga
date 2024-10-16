@@ -21,8 +21,8 @@ interface FrontsiteContainerProps {
 
 const commonSections = [
   { title: 'Inicio', url: '/' },
-  { title: 'El Yoga', url: '/yoga' },
-  //{ title: 'Las sesiones', url: '/sesiones' },
+  //{ title: 'El Yoga', url: '/yoga' },
+  { title: 'Las sesiones', url: '/seances' },
   { title: 'Inscripción', url: '/inscripcion' },
   { title: 'Acerca de', url: '/acerca-de' },
 ];

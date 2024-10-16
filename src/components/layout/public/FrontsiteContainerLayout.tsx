@@ -222,13 +222,16 @@ function Header({logo, title, url: titleUrl, sections, profile, signInUrl}: Head
       setMenuOpen(false);
     }
   }, [setMenuOpen, isDesktop]);
+  
+  const router = useRouter();
+  const isHomepage = router.pathname === '/'; // Vérifie si l'utilisateur est sur la page d'accueil
 
   const toolbarSx = {
     px: '0 !important',
     zIndex: 10,
     mb: 2,
     pd: 2,
-    height: '100vh',
+    height: isHomepage ? '100vh' : '10vh', // Utilise 15vh si ce n'est pas la page d'accueil
     position: 'relative',
     alignItems: 'flex-start',  // Aligne les éléments en haut verticalement
     flexDirection: { xs: 'column', md: 'row' },
@@ -353,20 +356,25 @@ export const FrontsiteContainerLayout: React.FC<FrontsiteContainerLayoutProps> =
   footerLinks,
   children
 }) => {
+  const router = useRouter();
+  const isHomepage = router.pathname === '/'; // Vérifie si l'utilisateur est sur la page d'accueil
+
   return (
     <Box 
       sx={{ 
         display: 'flex', 
         flexDirection: 'column', 
-        minHeight: '100vh', 
-        backgroundImage: `url("/images/bg1.jpg")`, 
-        backgroundRepeat: 'no-repeat', 
-        backgroundSize: 'contain', // Conserve les proportions et ajuste la taille pour être contenu dans le box
-        backgroundPosition: 'top center', // Positionne l'image au centre
-        width: '100%',
-        height: 'auto',
+        ...(isHomepage && { // Applique ces styles seulement sur la page d'accueil
+          minHeight: '100vh', 
+          backgroundImage: `url("/images/bg1.jpg")`, 
+          backgroundRepeat: 'no-repeat', 
+          backgroundSize: 'contain', // Conserve les proportions et ajuste la taille pour être contenu dans le box
+          backgroundPosition: 'top center', // Positionne l'image au centre
+          width: '100%',
+          height: 'auto',
+        }),
       }}
-    >      <CssBaseline />
+    >    <CssBaseline />
       <Container maxWidth="lg">
         <Header logo={logo} title={title} url={url} sections={sections} profile={profile} signInUrl={signInUrl} />
         <Box component="main" sx={{ mb: 2 }}>
